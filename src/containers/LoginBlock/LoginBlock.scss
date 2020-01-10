@@ -1,0 +1,30 @@
+@import "../../variables.scss";
+@import "../../index.scss";
+
+.login-container {
+  padding: 40px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  @extend %container;
+  @extend %active-container;
+  form {
+    margin: auto;
+    width: 80%;
+  }
+  div {
+    display: flex;
+    justify-content: center;
+    margin-top: 80px;
+    button {
+      margin: 0 10px;
+      &:first-child {
+        color: $light-color;
+        @extend %bordered-btn;
+      }
+      &:last-child {
+        @extend %accent-btn;
+      }
+    }
+  }
+}

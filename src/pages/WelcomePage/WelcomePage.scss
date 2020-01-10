@@ -1,0 +1,40 @@
+@import "../../variables.scss";
+@import "../../index.scss";
+
+.welcome {
+  display: grid;
+  grid-template-areas: "logo . ." ". main ." ". . .";
+  grid-template-columns: 1fr 5fr 1fr;
+  grid-template-rows: 1fr 5fr 1fr;
+  &>img {
+    grid-area: logo;
+  }
+  section {
+    grid-area: main;
+    text-align: center;
+    &>* {
+      display: block;
+      margin: auto;
+    }
+    h1 {
+      color: $accent-color-primary-dark;
+      font-family: salsa;
+      font-size: 64px;
+      margin-bottom: 40px;
+    }
+    img {
+      height: 300px;
+      margin-bottom: 80px;
+    }
+  }
+  button {
+    margin-left: 20px;
+    margin-right: 20px;
+    &:first-child {
+      @extend %bordered-btn;
+    }
+    &:last-child {
+      @extend %accent-btn;
+    }
+  }
+}

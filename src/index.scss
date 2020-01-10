@@ -1,0 +1,107 @@
+@import url('https://fonts.googleapis.com/css?family=Roboto:300,400,700|Salsa&display=swap');
+@import "./variables.scss";
+
+* {
+  margin: 0;
+  padding: 0;
+  border: none;
+  box-sizing: border-box;
+  font-family: 'Roboto';
+}
+
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+    monospace;
+}
+
+button {
+  cursor: pointer;
+  font-size: 18px;
+  padding: 0.5em 2em;
+  &:hover {
+    transform: scale(1.1);
+  }
+  &:active {
+    transform: scale(0.8);
+  }
+}
+
+%container {
+  * {
+    color: $light-color;
+    display: block;
+    font-size: 18px;
+  }
+  h2 {
+    color: $accent-color-primary-dark;
+    font-family: Salsa;
+    font-size: 24px;
+    line-height: 29px;
+    text-align: center;
+    text-transform: uppercase;
+    margin-bottom: 40px;
+  }
+  label {
+    font-weight: 700;
+    margin-top: 20px;
+    text-transform: capitalize;
+  }
+  input {
+    background: $darken-small;
+    border: 2px solid $accent-color-primary-light;
+    padding: 0.4em;
+    padding-left: 20px;
+    width: 100%;
+    margin: 10px 0;
+  }
+  p {
+    margin-top: 80px;
+  }
+}
+
+%active-container {
+  height: 100%;
+  padding: 20px;
+  position: relative;
+  background-color: $darken-small;
+  box-shadow: 4px 0px 24px rgba(0, 0, 0, 0.25);
+  * {
+    position: relative;
+    z-index: 4;
+  }
+  &:before {
+    content: '';
+    background-image: url('./assets/bg-image.jpg');
+    background-position: center;
+    background-size: 150%;
+    background-repeat: no-repeat;
+    position: absolute;
+    top: 0; left: 0;
+    width: 100%; height: 100%;
+    opacity: 0.1;
+    z-index: 1;
+  }
+}
+
+%bordered-btn {
+  background: $darken-smallest;
+  border: 2px solid $accent-color-primary-light;
+  color: $accent-color-primary-light;
+  outline-color: $accent-color-primary-light;
+}
+
+%accent-btn {
+  background: $accent-color-secondary;
+  border: 2px solid $accent-color-secondary;
+  color: white;
+  outline-color: $accent-color-secondary;
+}

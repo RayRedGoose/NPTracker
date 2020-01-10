@@ -1,0 +1,33 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`WelcomePage should match the snapshot with all data passed in correctly 1`] = `
+<main
+  className="welcome"
+>
+  <img
+    alt="logo"
+    src="logo.svg"
+  />
+  <section>
+    <h1>
+      Welcome, Traveller!
+    </h1>
+    <img
+      alt="traveller"
+      src="traveller.svg"
+    />
+    <div>
+      <button
+        onClick={[Function]}
+      >
+        Sign In
+      </button>
+      <button
+        onClick={[Function]}
+      >
+        Create Account
+      </button>
+    </div>
+  </section>
+</main>
+`;
