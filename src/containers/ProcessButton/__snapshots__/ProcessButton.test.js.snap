@@ -1,0 +1,16 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ProcessButton Snapshots should match snapshot if isRedirected state is true 1`] = `
+<Redirect
+  to="/login"
+/>
+`;
+
+exports[`ProcessButton Snapshots should match snapshot with all data passed in correctly 1`] = `
+<button
+  id="login"
+  onClick={[Function]}
+>
+  Sign In
+</button>
+`;
