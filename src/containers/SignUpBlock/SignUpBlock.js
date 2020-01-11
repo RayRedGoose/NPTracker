@@ -19,8 +19,9 @@ export class SignUpBlock extends Component {
 
   componentDidMount() {
     const { process } = this.props
-    if (!process) window.location = '/welcome'
-    this.checkType()
+    return (!process)
+      ? window.location = '/welcome'
+      : this.checkType()
   }
 
   componentDidUpdate(prevProps) {
@@ -59,7 +60,6 @@ export class SignUpBlock extends Component {
   }
 
   handleChanges = (event) => {
-    this.setState({error: ''})
     const obj = {}
     obj[event.target.id] = event.target.value
     this.setState({data: {...this.state.data, ...obj}})
@@ -78,7 +78,7 @@ export class SignUpBlock extends Component {
   }
 
   cancel = () => {
-    window.location = '/window'
+    window.location = '/welcome'
   }
 
   checkUserFullness = () => {

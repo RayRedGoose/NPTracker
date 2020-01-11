@@ -1,0 +1,131 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`SignUpBlock Snapshots should match snapshot if type is active on last step of process and all user data was entered 1`] = `
+<section
+  className="signup-container active-block"
+  id={4}
+>
+  <div
+    className="submit-block"
+    key="submit-block"
+  >
+    <h2>
+      Profile overview
+    </h2>
+    <div
+      className="image"
+      style={
+        Object {
+          "backgroundImage": "url(some-image)",
+        }
+      }
+    />
+    <p>
+      Ray Zlou
+    </p>
+    <p
+      className="location"
+    >
+      Denver
+    </p>
+    <div>
+      <button
+        onClick={[Function]}
+      >
+        Create
+      </button>
+      <button
+        onClick={[Function]}
+      >
+        Cancel
+      </button>
+    </div>
+  </div>
+</section>
+`;
+
+exports[`SignUpBlock Snapshots should match snapshot if type is done 1`] = `
+<section
+  className="signup-container done-block"
+  id={1}
+/>
+`;
+
+exports[`SignUpBlock Snapshots should match snapshot if type is inactive 1`] = `
+<section
+  className="signup-container inactive-block"
+  id={1}
+>
+  <img
+    alt="matryoshka"
+    src="matryoshka.svg"
+    style={
+      Object {
+        "height": "160px",
+        "position": "relative",
+        "zIndex": "3",
+      }
+    }
+  />
+</section>
+`;
+
+exports[`SignUpBlock Snapshots should match snapshot with all data passed correctly 1`] = `
+<section
+  className="signup-container active-block"
+  id={1}
+>
+  <form>
+    <h2>
+      CREATE ACCOUNT
+    </h2>
+    <label
+      htmlFor="username"
+      key="label-username"
+    >
+      username
+    </label>
+    <input
+      id="username"
+      key="input-username"
+      onChange={[Function]}
+      type="text"
+    />
+    <p>
+      click arrow button to go to next step
+    </p>
+  </form>
+  <img
+    alt="arrow"
+    className="arrow-btn"
+    onClick={[Function]}
+    src="send.svg"
+  />
+</section>
+`;
+
+exports[`SignUpBlock Snapshots should match snapshot with error if type is active on last step of process but no user data 1`] = `
+<section
+  className="signup-container active-block"
+  id={4}
+>
+  <div
+    className="submit-block error-block"
+    key="error-block"
+  >
+    <h2>
+      Profile overview
+    </h2>
+    <p
+      className="error"
+    >
+      You don't pass correct data
+    </p>
+    <button
+      onClick={[Function]}
+    >
+      Cancel
+    </button>
+  </div>
+</section>
+`;
