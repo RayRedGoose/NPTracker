@@ -2,16 +2,52 @@ import React from 'react';
 import { shallow } from 'enzyme';
 import { App, mapStateToProps, mapDispatchToProps } from './App';
 import { addUserInfo } from 'redux/actions'
+import { getItem } from '_utils/localStorage'
+
+jest.mock('_utils/localStorage')
 
 describe('App', () => {
-  let App
+  let app, instance, mockProps
+
+  const addUserInfo = jest.fn()
+  const user = { name: 'Ray' }
+  const process = null
 
   beforeEach(() => {
-    const app = shallow(
-      <App />
+    mockProps = {
+      user,
+      process,
+      addUserInfo
+    }
+
+    app = shallow(
+      <App {...mockProps} />
     );
+
+    instance = app.instance()
   });
 
+  it("should call getItem after component was rendered", () => {
+    expect(getItem).toHaveBeenCalledWith('user');
+  });
+
+  it("should call addUserInfo prop if user info was taken from localStorage after component was rendered", () => {
+    getItem.mockImplementation(() => user)
+
+    instance.componentDidMount()
+
+    expect(addUserInfo).toHaveBeenCalledWith(user);
+  });
+
+  it("should call change isLogged state if user prop is changed", () => {
+    expect(app.state('isLogged')).toEqual(false);
+
+    const mockPrevProp = { user: {} }
+
+    instance.componentDidUpdate(mockPrevProp)
+
+    expect(app.state('isLogged')).toEqual(true);
+  });
 });
 
 describe("mapStateToProps", () => {
