@@ -16,13 +16,12 @@ export class App extends Component {
   }
   componentDidMount() {
     const user = getItem('user')
-    if (user) this.props.addUserInfo(user)
+    if (user) this.addUser(user)
   }
 
-  componentDidUpdate(prevProps) {
-    if (this.props.user !== prevProps.user) {
-      this.setState({isLogged: true})
-    }
+  addUser = (user) => {
+    this.props.addUserInfo(user)
+    this.setState({isLogged: true})
   }
 
   render() {

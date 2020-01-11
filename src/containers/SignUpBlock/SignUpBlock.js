@@ -1,5 +1,5 @@
 import './SignUpBlock.scss'
-import React, { Component } from 'react'
+import React, { Component, Fragment } from 'react'
 import { connect } from 'react-redux'
 import { bindActionCreators } from 'redux'
 import matryoshka from 'assets/matryoshka.svg'
@@ -24,7 +24,6 @@ export class SignUpBlock extends Component {
   }
 
   componentDidUpdate(prevProps) {
-    // Typical usage (don't forget to compare props):
     if (this.props.process.step !== prevProps.process.step) {
       this.checkType()
     }
@@ -43,14 +42,18 @@ export class SignUpBlock extends Component {
     return inputs.map(input => {
       const text = (input === 'password') ? 'password' : 'text'
       return (
-        <>
-          <label htmlFor={input}>{input.split('_').join(' ')}</label>
+        <Fragment key="inputs">
+          <label
+            key={'label-' + input}
+            htmlFor={input}>
+            {input.split('_').join(' ')}</label>
           <input
+            key={'input-' + input}
             id={input}
             type={text}
             value={this.state.data[input]}
             onChange={this.handleChanges} />
-        </>
+        </Fragment>
       )
     })
   }
@@ -78,6 +81,11 @@ export class SignUpBlock extends Component {
     window.location = '/window'
   }
 
+  checkUserFullness = () => {
+    const user = this.props.user ? this.props.user : {}
+    return Object.keys(user).sort() !== ['city', 'image', 'last_name','name','password', 'username']
+  }
+
   render() {
     const { id, user, process } = this.props
 
@@ -88,7 +96,7 @@ export class SignUpBlock extends Component {
     }
 
     const bodyWithInputs = (
-      <>
+      <Fragment key='form'>
         <form>
           <h2>CREATE ACCOUNT</h2>
           {!this.state.error === '' && <p className="error-notification">this.state.error</p>}
@@ -96,11 +104,19 @@ export class SignUpBlock extends Component {
           <p>click arrow button to go to next step</p>
         </form>
         <img className="arrow-btn" src={arrow} alt="arrow" onClick={this.updateUser}/>
-      </>
+      </Fragment>
     )
 
-    const bodyWithSubmit = (
-      <div className="submit-block">
+    const bodyWithError = (
+      <div key='error-block' className="submit-block error-block">
+        <h2>Profile overview</h2>
+        <p className="error">You don't pass correct data</p>
+        <button onClick={this.cancel}>Cancel</button>
+      </div>
+    )
+
+    const bodyWithSubmit = (this.checkUserFullness()) ? bodyWithError : (
+      <div key='submit-block' className="submit-block">
         <h2>Profile overview</h2>
         <img src={user.image} alt="avatar" />
         <p>{user.name + ' ' + user.last_name}</p>
