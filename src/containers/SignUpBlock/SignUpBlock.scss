@@ -84,3 +84,15 @@
     }
   }
 }
+
+.error-block {
+  .error {
+    @extend .error;
+    margin: 0 0 40px;
+    text-transform: none;
+    font-size: 18px;
+  }
+  button {
+    @extend %accent-btn;
+  }
+}

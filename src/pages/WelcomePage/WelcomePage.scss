@@ -32,6 +32,7 @@
     margin-right: 20px;
     &:first-child {
       @extend %bordered-btn;
+      background: none;
     }
     &:last-child {
       @extend %accent-btn;
