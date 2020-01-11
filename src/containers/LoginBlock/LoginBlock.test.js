@@ -2,6 +2,7 @@ import React from 'react';
 import { shallow } from 'enzyme';
 import { LoginBlock, mapDispatchToProps } from './LoginBlock';
 import { getItem, addItem } from '_utils/localStorage'
+import { addUserInfo } from 'redux/actions'
 
 jest.mock('_utils/localStorage')
 
@@ -258,5 +259,19 @@ describe("LoginBlock", () => {
 
       expect(addItem).toHaveBeenCalledWith('user', mockUser)
     });
+  });
+});
+
+describe("mapDispatchToProps", () => {
+  it("should call dispatch with an addUserInfo action when addUserInfo is called", () => {
+    const user = { name: 'Ray' }
+    const mockDispatch = jest.fn()
+    const mockProps = mapDispatchToProps(mockDispatch)
+
+    const actionToDispatch = addUserInfo(user)
+
+    const result = mockProps.addUserInfo(user)
+
+    expect(mockDispatch).toHaveBeenCalledWith(actionToDispatch);
   });
 });
