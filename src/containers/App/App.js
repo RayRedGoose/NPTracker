@@ -14,6 +14,7 @@ export class App extends Component {
       isLogged: false
     }
   }
+  
   componentDidMount() {
     const user = getItem('user')
     if (user) this.addUser(user)

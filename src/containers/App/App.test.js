@@ -31,20 +31,30 @@ describe('App', () => {
     expect(getItem).toHaveBeenCalledWith('user');
   });
 
-  it("should call addUserInfo prop if user info was taken from localStorage after component was rendered", () => {
-    getItem.mockImplementation(() => user)
+  it("should call addUser method if user info was taken from localStorage after component was rendered", () => {
+    getItem.mockImplementation(()=> user)
+
+    const spy = jest.spyOn(instance, 'addUser').mockImplementation()
 
     instance.componentDidMount()
+
+    expect(spy).toHaveBeenCalledWith(user);
+  });
+
+  it("should call addUserInfo prop with user argument if addUser is called", () => {
+    instance.addUser(user)
 
     expect(addUserInfo).toHaveBeenCalledWith(user);
   });
 
-  it("should call change isLogged state if user prop is changed", () => {
+  it("should change isLogged state if addUser is called", () => {
+    getItem.mockImplementation(()=> null)
+
+    app.setState({isLogged: false})
+
     expect(app.state('isLogged')).toEqual(false);
 
-    const mockPrevProp = { user: {} }
-
-    instance.componentDidUpdate(mockPrevProp)
+    instance.addUser(user)
 
     expect(app.state('isLogged')).toEqual(true);
   });
