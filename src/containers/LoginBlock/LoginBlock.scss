@@ -28,3 +28,13 @@
     }
   }
 }
+
+.error {
+  color: $accent-color-primary-light;
+  border: 2px solid $accent-color-secondary;
+  background-color: $darken-small;
+  box-shadow: 0 0 12px 0 $accent-color-secondary;
+  font-weight: 700;
+  text-align: center;
+  padding: 0.5em;
+}

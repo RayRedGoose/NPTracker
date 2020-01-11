@@ -1,0 +1,153 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`LoginBlock snapshots should match the snapshot if isRedirect state is true 1`] = `
+<section
+  className="login-container"
+>
+  <Redirect
+    to="/signup"
+  />
+  <form
+    onSubmit={[Function]}
+  >
+    <h2>
+      Traveler login
+    </h2>
+    <label
+      htmlFor="username"
+    >
+      username
+    </label>
+    <input
+      id="username"
+      onChange={[Function]}
+      type="username"
+      value=""
+    />
+    <label
+      htmlFor="password"
+    >
+      password
+    </label>
+    <input
+      id="password"
+      onChange={[Function]}
+      type="password"
+      value=""
+    />
+    <div>
+      <button
+        onClick={[Function]}
+      >
+        Submit
+      </button>
+      <button
+        onClick={[Function]}
+      >
+        Sign Up
+      </button>
+    </div>
+  </form>
+</section>
+`;
+
+exports[`LoginBlock snapshots should match the snapshot if state has error info 1`] = `
+<section
+  className="login-container"
+>
+  <form
+    onSubmit={[Function]}
+  >
+    <h2>
+      Traveler login
+    </h2>
+    <p
+      className="error"
+    >
+      This is error!
+    </p>
+    <label
+      htmlFor="username"
+    >
+      username
+    </label>
+    <input
+      id="username"
+      onChange={[Function]}
+      type="username"
+      value=""
+    />
+    <label
+      htmlFor="password"
+    >
+      password
+    </label>
+    <input
+      id="password"
+      onChange={[Function]}
+      type="password"
+      value=""
+    />
+    <div>
+      <button
+        onClick={[Function]}
+      >
+        Submit
+      </button>
+      <button
+        onClick={[Function]}
+      >
+        Sign Up
+      </button>
+    </div>
+  </form>
+</section>
+`;
+
+exports[`LoginBlock snapshots should match the snapshot with all data passed in correctly 1`] = `
+<section
+  className="login-container"
+>
+  <form
+    onSubmit={[Function]}
+  >
+    <h2>
+      Traveler login
+    </h2>
+    <label
+      htmlFor="username"
+    >
+      username
+    </label>
+    <input
+      id="username"
+      onChange={[Function]}
+      type="username"
+      value=""
+    />
+    <label
+      htmlFor="password"
+    >
+      password
+    </label>
+    <input
+      id="password"
+      onChange={[Function]}
+      type="password"
+      value=""
+    />
+    <div>
+      <button
+        onClick={[Function]}
+      >
+        Submit
+      </button>
+      <button
+        onClick={[Function]}
+      >
+        Sign Up
+      </button>
+    </div>
+  </form>
+</section>
+`;
