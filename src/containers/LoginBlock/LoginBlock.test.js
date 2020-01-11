@@ -20,7 +20,7 @@ describe("LoginBlock", () => {
     instance = block.instance()
   });
 
-  describe("snapshots", () => {
+  describe("Snapshots", () => {
     it("should match the snapshot with all data passed in correctly", () => {
       expect(block).toMatchSnapshot()
     });
@@ -36,7 +36,7 @@ describe("LoginBlock", () => {
     });
   });
 
-  describe("events", () => {
+  describe("Event handlers", () => {
     it("should call submitUser method when form is submitted", () => {
       const spy = jest.spyOn(instance, 'submitUser').mockImplementation(() => {})
 
@@ -146,6 +146,23 @@ describe("LoginBlock", () => {
       instance.handleChanges(mockEvent)
 
       expect(block.state(inpytType)).toEqual('user')
+    });
+
+    it("should change state key the same with id of input if handleChanges has been called", () => {
+      mockEvent = {
+        target: {
+          id: 'password',
+          value: '1234'
+        }
+      }
+
+      const inpytType = 'password'
+
+      expect(block.state(inpytType)).toEqual('')
+
+      instance.handleChanges(mockEvent)
+
+      expect(block.state(inpytType)).toEqual('1234')
     });
 
     it("should create state error key with value of null if handleChanges has been called", () => {

@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`LoginBlock snapshots should match the snapshot if isRedirect state is true 1`] = `
+exports[`LoginBlock Snapshots should match the snapshot if isRedirect state is true 1`] = `
 <section
   className="login-container"
 >
@@ -51,7 +51,7 @@ exports[`LoginBlock snapshots should match the snapshot if isRedirect state is t
 </section>
 `;
 
-exports[`LoginBlock snapshots should match the snapshot if state has error info 1`] = `
+exports[`LoginBlock Snapshots should match the snapshot if state has error info 1`] = `
 <section
   className="login-container"
 >
@@ -104,7 +104,7 @@ exports[`LoginBlock snapshots should match the snapshot if state has error info 
 </section>
 `;
 
-exports[`LoginBlock snapshots should match the snapshot with all data passed in correctly 1`] = `
+exports[`LoginBlock Snapshots should match the snapshot with all data passed in correctly 1`] = `
 <section
   className="login-container"
 >
