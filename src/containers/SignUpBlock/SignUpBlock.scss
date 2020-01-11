@@ -47,9 +47,11 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  img {
-    width: 200px;
-    border: 2px solid $accent-color-primary-dark;
+  .image {
+    width: 200px; height: 200px;
+    border: 1px solid $accent-color-primary-dark;
+    background-position:  center;
+    background-size: cover;
   }
   p {
     text-transform: uppercase;

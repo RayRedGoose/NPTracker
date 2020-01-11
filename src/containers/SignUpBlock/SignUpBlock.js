@@ -83,7 +83,7 @@ export class SignUpBlock extends Component {
 
   checkUserFullness = () => {
     const user = this.props.user ? this.props.user : {}
-    return Object.keys(user).sort() !== ['city', 'image', 'last_name','name','password', 'username']
+    return Object.keys(user).length === 6
   }
 
   render() {
@@ -99,7 +99,6 @@ export class SignUpBlock extends Component {
       <Fragment key='form'>
         <form>
           <h2>CREATE ACCOUNT</h2>
-          {!this.state.error === '' && <p className="error-notification">this.state.error</p>}
           { this.createInputs() }
           <p>click arrow button to go to next step</p>
         </form>
@@ -115,10 +114,10 @@ export class SignUpBlock extends Component {
       </div>
     )
 
-    const bodyWithSubmit = (this.checkUserFullness()) ? bodyWithError : (
+    const bodyWithSubmit = (!this.checkUserFullness()) ? bodyWithError : (
       <div key='submit-block' className="submit-block">
         <h2>Profile overview</h2>
-        <img src={user.image} alt="avatar" />
+        <div className='image' style={{backgroundImage: `url(${user.image})`}}></div>
         <p>{user.name + ' ' + user.last_name}</p>
         <p className="location">{user.city}</p>
         <div>
