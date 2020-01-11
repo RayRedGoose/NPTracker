@@ -6,27 +6,26 @@ exports[`WelcomePage should match the snapshot with all data passed in correctly
 >
   <img
     alt="logo"
+    className="logo"
     src="logo.svg"
   />
   <section>
     <h1>
-      Welcome, Traveller!
+      Welcome, Traveler!
     </h1>
     <img
-      alt="traveller"
-      src="traveller.svg"
+      alt="traveler"
+      src="traveler.svg"
     />
     <div>
-      <button
-        onClick={[Function]}
-      >
-        Sign In
-      </button>
-      <button
-        onClick={[Function]}
-      >
-        Create Account
-      </button>
+      <Connect(ProcessButton)
+        text="Sign In"
+        type="login"
+      />
+      <Connect(ProcessButton)
+        text="Create Account"
+        type="signup"
+      />
     </div>
   </section>
 </main>

@@ -1,0 +1,43 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`should match snapshot with all data passed in correctly 1`] = `
+<main
+  className="signup-page"
+>
+  <Connect(SignUpBlock)
+    id={1}
+    inputs={
+      Array [
+        "username",
+        "password",
+      ]
+    }
+    key="1"
+  />
+  <Connect(SignUpBlock)
+    id={2}
+    inputs={
+      Array [
+        "name",
+        "last_name",
+        "city",
+      ]
+    }
+    key="2"
+  />
+  <Connect(SignUpBlock)
+    id={3}
+    inputs={
+      Array [
+        "image",
+      ]
+    }
+    key="3"
+  />
+  <Connect(SignUpBlock)
+    id={4}
+    inputs={Array []}
+    key="4"
+  />
+</main>
+`;
