@@ -1,0 +1,44 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`NavPanel should match snapshot with all data passed in correctly 1`] = `
+<nav
+  className="nav-panel"
+>
+  <NavLink
+    className="nav-tab tab-active"
+    id={1}
+    key="dashboard"
+    onClick={[Function]}
+    to="/dashboard"
+  >
+    dashboard
+  </NavLink>
+  <NavLink
+    className="nav-tab"
+    id={2}
+    key="parks"
+    onClick={[Function]}
+    to="/parks"
+  >
+    parks
+  </NavLink>
+  <NavLink
+    className="nav-tab"
+    id={3}
+    key="visited"
+    onClick={[Function]}
+    to="/visited"
+  >
+    visited
+  </NavLink>
+  <NavLink
+    className="nav-tab"
+    id={4}
+    key="wish-list"
+    onClick={[Function]}
+    to="/wish-list"
+  >
+    wish list
+  </NavLink>
+</nav>
+`;
