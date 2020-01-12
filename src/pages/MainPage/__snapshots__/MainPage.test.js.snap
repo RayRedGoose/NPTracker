@@ -1,0 +1,13 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`should match snapshot with all data passed in correctly 1`] = `
+<main
+  className="main-page"
+>
+  <Connect(NavPanel) />
+  <Connect(UserProfile) />
+  <Connect(ParksContainer)
+    type="all"
+  />
+</main>
+`;
