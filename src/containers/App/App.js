@@ -14,7 +14,7 @@ export class App extends Component {
       isLogged: false
     }
   }
-  
+
   componentDidMount() {
     const user = getItem('user')
     if (user) this.addUser(user)
@@ -29,7 +29,8 @@ export class App extends Component {
     const { user, process } = this.props
     return (
       <main className="app">
-        { (!user || !process) && <Redirect to='/welcome' /> }
+        { (!user || !process) &&
+          <Redirect to='/welcome' /> }
         { this.state.isLogged && <Redirect to='/parks' />}
         { routers }
       </main>

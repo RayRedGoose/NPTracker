@@ -1,0 +1,32 @@
+@import "../../variables.scss";
+@import "../../index.scss";
+
+.park-card {
+  background-color: $darken-small;
+  padding: 20px;
+  width: 30%;
+  .preview {
+    width: 100%; height: 200px;
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    header {
+      background-color: $darken-medium;
+      display: flex;
+      justify-content: space-between;
+      padding: 10px;
+      img {
+        cursor: pointer;
+        width: 20px;
+        @extend %click-action;
+      }
+    }
+  }
+  h2 {
+    color: $accent-color-primary-light;
+    font-family: "Salsa";
+    letter-spacing: 0.1em;
+    margin-top: 20px;
+    text-align: center;
+  }
+}

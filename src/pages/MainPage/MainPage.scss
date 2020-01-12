@@ -1,0 +1,15 @@
+.main-page {
+  display: grid;
+  grid-template-areas: 'tabs user' 'main user';
+  grid-template-columns: 4fr 1fr;
+  grid-template-rows: 1fr 9fr;
+  &>nav {
+    grid-area: tabs;
+  }
+  &>aside {
+    grid-area: user;
+  }
+  &>section {
+    grid-area: main;
+  }
+}

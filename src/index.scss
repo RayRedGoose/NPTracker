@@ -116,3 +116,43 @@ button {
   text-align: center;
   padding: 1em 2em;
 }
+
+%user-show {
+  display: flex;
+  flex-direction: column;
+  .image {
+    width: 200px; height: 200px;
+    background-position:  center;
+    background-size: cover;
+    background-repeat: no-repeat;
+  }
+  p {
+    text-transform: uppercase;
+    font-size: 24px;
+    text-align: center;
+    margin-top: 0;
+  }
+  .location {
+    text-transform: capitalize;
+    margin-top: 10px;
+    &:before {
+      content: "";
+      background-image: url('./assets/pin.svg');
+      background-position: center;
+      background-repeat: no-repeat;
+      width: 20px; height: 24px;
+      display: inline-block;
+    }
+  }
+}
+
+%click-action {
+  &:hover {
+    transform: scale(1.1);
+    opacity: 1;
+  }
+  &:active {
+    transform: scale(0.8);
+    opacity: 0.5;
+  }
+}

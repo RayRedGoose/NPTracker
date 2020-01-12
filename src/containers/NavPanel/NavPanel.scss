@@ -1,0 +1,27 @@
+@import "../../variables.scss";
+
+.nav-panel {
+  border-bottom: 2px solid $darken-smallest;
+  margin: 20px;
+  padding-bottom: 10px;
+  padding-right: 80px;
+  width: fit-content;
+  height: fit-content;
+  .nav-tab {
+    color: $light-color;
+    font-family: 'Salsa';
+    font-size: 18px;
+    letter-spacing: 0.05em;
+    text-decoration: none;
+    margin: 0 10px;
+    padding: 20px 10px 10px;
+    &:hover {
+      color: $accent-color-primary-dark;
+      border-bottom: 2px solid $darken-small;
+    }
+    &.tab-active {
+      color: $accent-color-primary-dark;
+      border-bottom: 2px solid $accent-color-primary-dark;
+    }
+  }
+}

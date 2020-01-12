@@ -1,0 +1,48 @@
+@import "../../index.scss";
+
+.user-profile {
+  padding: 40px 20px;
+  @extend %container;
+  @extend %active-container;
+  @extend %user-show;
+  max-width: 360px;
+  header {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 40px;
+    h2 {
+      margin-bottom: 0;
+    }
+    img {
+      cursor: pointer;
+      width: 20px;
+      margin-left: 20px;
+      opacity: 0.5;
+      @extend %click-action;
+    }
+  }
+  p {
+    font-size: 18px;
+    text-align: left;
+    &:first-child {
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      margin-top: 0;
+    }
+    &.location {
+      &:before {
+        height: 18px;
+        margin-right: 5px;
+      }
+    }
+  }
+  section {
+    display: flex;
+    align-items: center;
+  }
+  .image {
+    width: 100px; height: 100px;
+    margin-right: 10px;
+  }
+}
