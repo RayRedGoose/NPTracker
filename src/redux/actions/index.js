@@ -16,3 +16,8 @@ export const addUserInfo = info => ({
   type: 'ADD_USER_INFO',
   info
 })
+
+export const addParks = parks => ({
+  type: 'ADD_PARKS',
+  parks
+})

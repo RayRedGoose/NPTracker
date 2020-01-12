@@ -46,3 +46,24 @@ it("should return object with a type of ADD_USER_INFO when addUserInfo is called
 
   expect(result).toEqual(expected)
 });
+
+it("should return object with a type of ADD_PARKS when addParks is called", () => {
+  const parks = [{
+    id: 1,
+    fullName: 'Mount Rainier National Park',
+    states: 'WA',
+    images: {},
+    description: 'Ascending to 14,410 feet above sea level, Mount Rainier stands as an icon in the Washington landscape.',
+    latLong: 'lat:46, long:-121',
+    url: 'https://www.some.url'
+  }]
+
+  const expected = {
+    type: 'ADD_PARKS',
+    parks
+  }
+
+  const result = actions.addParks(parks)
+
+  expect(result).toEqual(expected)
+});
