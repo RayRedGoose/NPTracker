@@ -3,7 +3,7 @@ import React from 'react'
 import { connect } from 'react-redux'
 import logout from 'assets/logout.svg'
 
-const UserProfile = ({ user }) => {
+export const UserProfile = ({ user }) => {
   return (
     <aside className="user-profile">
       <header>

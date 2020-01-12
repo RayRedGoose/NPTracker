@@ -1,0 +1,37 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`UserProfile should match snapshot with all data passed correctly 1`] = `
+<aside
+  className="user-profile"
+>
+  <header>
+    <h2>
+      Your Account
+    </h2>
+    <img
+      alt="logout"
+      src="logout.svg"
+    />
+  </header>
+  <section>
+    <div
+      className="image"
+      style={
+        Object {
+          "backgroundImage": "url(https://www.some.url/some.jpg)",
+        }
+      }
+    />
+    <div>
+      <p>
+        Ray Zlou
+      </p>
+      <p
+        className="location"
+      >
+        Denver
+      </p>
+    </div>
+  </section>
+</aside>
+`;
