@@ -21,3 +21,8 @@ export const addParks = parks => ({
   type: 'ADD_PARKS',
   parks
 })
+
+export const changeActiveTab = id => ({
+  type: 'CHANGE_ACTIVE_TAB',
+  id
+})

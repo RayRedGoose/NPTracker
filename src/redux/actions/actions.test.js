@@ -67,3 +67,14 @@ it("should return object with a type of ADD_PARKS when addParks is called", () =
 
   expect(result).toEqual(expected)
 });
+
+it("should return object with a type of CHANGE_ACTIVE_TAB when changeActiveTab is called", () => {
+  const expected = {
+    type: 'CHANGE_ACTIVE_TAB',
+    id: 2
+  }
+
+  const result = actions.changeActiveTab(2)
+
+  expect(result).toEqual(expected)
+});
