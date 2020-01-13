@@ -5,7 +5,7 @@ import { connect } from 'react-redux'
 import { bindActionCreators } from 'redux'
 import { getData } from 'apiCalls'
 import { addParks } from 'redux/actions'
-import ParkCardPreview from 'components/ParkCardPreview/ParkCardPreview'
+import ParkCardPreview from 'containers/ParkCardPreview/ParkCardPreview'
 
 export class ParksContainer extends Component {
   constructor() {
@@ -55,8 +55,8 @@ export class ParksContainer extends Component {
   }
 }
 
-export const mapStateToProps = ({parks}) => ({
-  parks
+export const mapStateToProps = ({parks, plannedParks}) => ({
+  parks, plannedParks
 })
 
 export const mapDispatchToProps = dispatch => (

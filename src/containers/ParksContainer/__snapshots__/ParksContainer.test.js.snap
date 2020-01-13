@@ -4,7 +4,7 @@ exports[`ParksContainer ParksContainer container should match snapshot with all 
 <section
   className="parks-content"
 >
-  <ParkCardPreview
+  <Connect(ParkCardPreview)
     fullName="Some National Park"
     id={1}
     image="images/some.jpg"

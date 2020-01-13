@@ -2,7 +2,13 @@
   "rules": {
     "import/no-extraneous-dependencies": ["error", { "devDependencies": true }],
     "react/jsx-filename-extension": [1, { "extensions": [".js", ".jsx"] }],
+    "max-lines-per-function": ["error", 30],
     "comma-dangle": ["error", "never"],
     "semi": ["error", "never"],
+    "no-useless-rename": ["error", {
+        "ignoreDestructuring": false,
+        "ignoreImport": false,
+        "ignoreExport": false
+    }]
   }
 }

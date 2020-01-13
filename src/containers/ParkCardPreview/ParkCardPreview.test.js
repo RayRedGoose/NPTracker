@@ -119,7 +119,7 @@ describe("mapDispatchToProps", () => {
   beforeEach(() => {
     mockDispatch = jest.fn()
     mockProps = mapDispatchToProps(mockDispatch)
-  });
+  })
 
   it("should call dispatch with addPlannedPark after addPlannedPark prop is called", () => {
     const actionToDispatch = addPlannedPark('Some park')
