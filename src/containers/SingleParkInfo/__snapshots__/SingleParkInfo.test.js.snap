@@ -1,0 +1,72 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`SingleParkInfo SingleParkInfo component Snapshots should match snapshot if there is no park data 1`] = `""`;
+
+exports[`SingleParkInfo SingleParkInfo component Snapshots should match snapshot with all data passed in correctly 1`] = `
+<section
+  className="single-park"
+>
+  <section>
+    <div
+      style={
+        Object {
+          "backgroundImage": "url(/some.img.jpg)",
+        }
+      }
+    />
+    <header>
+      <h2>
+        Mount Rainier National Park
+      </h2>
+      <a
+        href="https://www.nps.gov/mora/index.htm"
+      >
+        <img
+          alt="arrow"
+          src="more.svg"
+        />
+      </a>
+    </header>
+    <p
+      className="location"
+    >
+      WA
+    </p>
+    <p
+      className="desc"
+    >
+      Ascending to 14,410 feet above sea level, Mount Rainier stands as an icon in the Washington landscape.
+    </p>
+    <footer>
+      <p
+        className="bell-no-active"
+      >
+        Add to wish list
+      </p>
+      <p
+        className="flag-no-active"
+      >
+        Mark as visited
+      </p>
+    </footer>
+  </section>
+  <section>
+    <div>
+      <h3>
+        Direction Info
+      </h3>
+      <p>
+        Mount Rainier National Park is located in west-central Washington state.
+      </p>
+    </div>
+    <div>
+      <h3>
+        Weather Info
+      </h3>
+      <p>
+        Weather patterns at Mount Rainier are strongly influenced by the Pacific Ocean and elevation.
+      </p>
+    </div>
+  </section>
+</section>
+`;
