@@ -3,19 +3,11 @@ import PropTypes from 'prop-types'
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import { bindActionCreators } from 'redux'
-import { Redirect } from 'react-router-dom'
 import routers from 'routers'
-import { addUserInfo } from 'redux/actions'
+import { addUserInfo, addPlannedParks } from 'redux/actions'
 import { getItem } from '_utils/localStorage'
 
 export class App extends Component {
-  constructor(props) {
-    super(props)
-    this.state = {
-      isLogged: false
-    }
-  }
-
   componentDidMount() {
     const user = getItem('user')
     if (user) this.addUser(user)
@@ -23,11 +15,15 @@ export class App extends Component {
 
   addUser = (user) => {
     this.props.addUserInfo(user)
-    this.setState({isLogged: true})
+    this.addUserData()
+  }
+
+  addUserData = () => {
+    const planning = getItem('planning')
+    this.props.addPlannedParks(planning)
   }
 
   render() {
-    const { user, process } = this.props
     return (
       <main className="app">
         { routers }
@@ -36,20 +32,15 @@ export class App extends Component {
   }
 }
 
-export const mapStateToProps = ({user, process}) => ({
-  user, process
-})
-
 export const mapDispatchToProps = dispatch => (
   bindActionCreators({
-    addUserInfo
+    addUserInfo, addPlannedParks
   }, dispatch)
 )
 
 App.propTypes = {
-  user: PropTypes.object.isRequired,
-  process: PropTypes.object,
-  addUserInfo: PropTypes.func.isRequired
+  addUserInfo: PropTypes.func.isRequired,
+  addPlannedParks: PropTypes.func.isRequired
 }
 
-export default connect(mapStateToProps,mapDispatchToProps)(App)
+export default connect(null,mapDispatchToProps)(App)

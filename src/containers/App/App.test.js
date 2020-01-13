@@ -1,7 +1,7 @@
 import React from 'react'
 import { shallow } from 'enzyme'
 import { App, mapStateToProps, mapDispatchToProps } from './App'
-import { addUserInfo } from 'redux/actions'
+import { addUserInfo, addPlannedParks } from 'redux/actions'
 import { getItem } from '_utils/localStorage'
 
 jest.mock('_utils/localStorage')
@@ -10,6 +10,7 @@ describe('App', () => {
   let app, instance, mockProps
 
   const addUserInfo = jest.fn()
+  const addPlannedParks = jest.fn()
   const user = { name: 'Ray' }
   const process = null
 
@@ -17,7 +18,8 @@ describe('App', () => {
     mockProps = {
       user,
       process,
-      addUserInfo
+      addUserInfo,
+      addPlannedParks
     }
 
     app = shallow(
@@ -54,37 +56,23 @@ describe('App', () => {
       expect(addUserInfo).toHaveBeenCalledWith(user)
     })
 
-    it("should change isLogged state if addUser is called", () => {
-      getItem.mockImplementation(()=> null)
-
-      app.setState({isLogged: false})
-
-      expect(app.state('isLogged')).toEqual(false)
+    it("should call addUserData with user argument if addUser is called", () => {
+      const spy = jest.spyOn(instance, 'addUserData').mockImplementation(jest.fn())
+      instance.forceUpdate()
 
       instance.addUser(user)
 
-      expect(app.state('isLogged')).toEqual(true)
+      expect(spy).toHaveBeenCalled()
     })
   })
-})
 
-describe("mapStateToProps", () => {
-  it("should return the object with correct key/value pairs from store", () => {
-    const mockStore = {
-      user: { },
-      process: null,
-      parks: []
-    }
+  it("should call addPlannedParks prop with user argument if addUserData is called", () => {
+    getItem.mockImplementation(() => ["Some park"])
 
-    const expected = {
-      user: { },
-      process: null,
-    }
+    instance.addUserData(user)
 
-    const result = mapStateToProps(mockStore)
-
-    expect(result).toEqual(expected)
-  })
+    expect(addPlannedParks).toHaveBeenCalledWith(["Some park"])
+  });
 })
 
 describe("mapDispatchToProps", () => {
@@ -101,6 +89,16 @@ describe("mapDispatchToProps", () => {
     const actionToDispatch = addUserInfo(user)
 
     const result = mockProps.addUserInfo(user)
+
+    expect(mockDispatch).toHaveBeenCalledWith(actionToDispatch)
+  })
+
+  it("should call dispatch with an addPlannedParks action when addPlannedParks is called", () => {
+    const parks = ["Some Park"]
+
+    const actionToDispatch = addPlannedParks(parks)
+
+    const result = mockProps.addPlannedParks(parks)
 
     expect(mockDispatch).toHaveBeenCalledWith(actionToDispatch)
   })
