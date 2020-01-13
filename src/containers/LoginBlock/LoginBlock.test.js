@@ -1,6 +1,6 @@
-import React from 'react';
-import { shallow } from 'enzyme';
-import { LoginBlock, mapDispatchToProps } from './LoginBlock';
+import React from 'react'
+import { shallow } from 'enzyme'
+import { LoginBlock, mapDispatchToProps } from './LoginBlock'
 import { getItem, addItem } from '_utils/localStorage'
 import { addUserInfo } from 'redux/actions'
 
@@ -18,23 +18,23 @@ describe("LoginBlock", () => {
     block = shallow(
       <LoginBlock addUserInfo={ addUserInfo }/> )
     instance = block.instance()
-  });
+  })
 
   describe("Snapshots", () => {
     it("should match the snapshot with all data passed in correctly", () => {
       expect(block).toMatchSnapshot()
-    });
+    })
 
     it("should match the snapshot if isRedirect state is true", () => {
       block.setState({isRedirected: true})
       expect(block).toMatchSnapshot()
-    });
+    })
 
     it("should match the snapshot if state has error info", () => {
       block.setState({error: 'This is error!'})
       expect(block).toMatchSnapshot()
-    });
-  });
+    })
+  })
 
   describe("Event handlers", () => {
     it("should call submitUser method when form is submitted", () => {
@@ -48,8 +48,8 @@ describe("LoginBlock", () => {
 
       block.find('form').simulate('submit', mockEvent)
 
-      expect(spy).toHaveBeenCalledWith(mockEvent);
-    });
+      expect(spy).toHaveBeenCalledWith(mockEvent)
+    })
 
     it("should call submitUser method when button is clicked", () => {
       const spy = jest.spyOn(instance, 'submitUser').mockImplementation(() => {})
@@ -62,8 +62,8 @@ describe("LoginBlock", () => {
 
       block.find('button:first-child').simulate('click', mockEvent)
 
-      expect(spy).toHaveBeenCalledWith(mockEvent);
-    });
+      expect(spy).toHaveBeenCalledWith(mockEvent)
+    })
 
     it("should call handleChanges method when username input is change", () => {
       const spy = jest.spyOn(instance, 'handleChanges').mockImplementation(() => {})
@@ -79,8 +79,8 @@ describe("LoginBlock", () => {
 
       block.find('#username').simulate('change', mockEvent)
 
-      expect(spy).toHaveBeenCalledWith(mockEvent);
-    });
+      expect(spy).toHaveBeenCalledWith(mockEvent)
+    })
 
     it("should call handleChanges method when password input is change", () => {
       const spy = jest.spyOn(instance, 'handleChanges').mockImplementation(() => {})
@@ -96,8 +96,8 @@ describe("LoginBlock", () => {
 
       block.find('#password').simulate('change', mockEvent)
 
-      expect(spy).toHaveBeenCalledWith(mockEvent);
-    });
+      expect(spy).toHaveBeenCalledWith(mockEvent)
+    })
 
     it("should call redirect method when sign up button has been clicked", () => {
       const spy = jest.spyOn(instance, 'redirect').mockImplementation(() => {})
@@ -110,9 +110,9 @@ describe("LoginBlock", () => {
 
       block.find('button:last-child').simulate('click', mockEvent)
 
-      expect(spy).toHaveBeenCalledWith(mockEvent);
-    });
-  });
+      expect(spy).toHaveBeenCalledWith(mockEvent)
+    })
+  })
 
   it("should change isRedirected state to true arter redirect fn has been called", () => {
     const mockEvent = {
@@ -124,7 +124,7 @@ describe("LoginBlock", () => {
     instance.redirect(mockEvent)
 
     expect(block.state('isRedirected')).toEqual(true)
-  });
+  })
 
   describe("handleChanges", () => {
     let mockEvent
@@ -136,7 +136,7 @@ describe("LoginBlock", () => {
           value: 'user'
         }
       }
-    });
+    })
 
     it("should change state key the same with id of input if handleChanges has been called", () => {
       const inpytType = 'username'
@@ -146,7 +146,7 @@ describe("LoginBlock", () => {
       instance.handleChanges(mockEvent)
 
       expect(block.state(inpytType)).toEqual('user')
-    });
+    })
 
     it("should change state key the same with id of input if handleChanges has been called", () => {
       mockEvent = {
@@ -163,7 +163,7 @@ describe("LoginBlock", () => {
       instance.handleChanges(mockEvent)
 
       expect(block.state(inpytType)).toEqual('1234')
-    });
+    })
 
     it("should create state error key with value of null if handleChanges has been called", () => {
       expect(block.state('error')).toEqual(undefined)
@@ -171,8 +171,8 @@ describe("LoginBlock", () => {
       instance.handleChanges(mockEvent)
 
       expect(block.state('error')).toEqual(null)
-    });
-  });
+    })
+  })
 
   describe("submitUser fn", () => {
     const mockEvent = {
@@ -183,13 +183,13 @@ describe("LoginBlock", () => {
 
     beforeEach(() => {
       getItem.mockImplementation(() => mockUsers)
-    });
+    })
 
     it("should call getItem when submitUser is called", () => {
       instance.submitUser(mockEvent)
 
-      expect(getItem).toHaveBeenCalledWith('users');
-    });
+      expect(getItem).toHaveBeenCalledWith('users')
+    })
 
     it("should call findUser if the users array was taken from LS when submitUser is called", () => {
       const spy = jest.spyOn(instance, 'findUser').mockImplementation(() => {})
@@ -197,8 +197,8 @@ describe("LoginBlock", () => {
 
       instance.submitUser(mockEvent)
 
-      expect(spy).toHaveBeenCalledWith(mockUsers);
-    });
+      expect(spy).toHaveBeenCalledWith(mockUsers)
+    })
 
     it("should add error message to state if the users array was not taken from LS when submitUser is called", () => {
       getItem.mockImplementation(() => {})
@@ -210,8 +210,8 @@ describe("LoginBlock", () => {
       const error = 'Please, create account!'
 
       expect(block.state('error')).toEqual(error)
-    });
-  });
+    })
+  })
 
   describe("findUser fn", () => {
 
@@ -223,8 +223,8 @@ describe("LoginBlock", () => {
 
       instance.findUser([mockUser])
 
-      expect(spy).toHaveBeenCalledWith(mockUser);
-    });
+      expect(spy).toHaveBeenCalledWith(mockUser)
+    })
 
     it("should add error message to state if user was not found when findUser is called", () => {
       block.setState({username: 'other-user'})
@@ -236,8 +236,8 @@ describe("LoginBlock", () => {
       const error = 'This username is not found!'
 
       expect(block.state('error')).toEqual(error)
-    });
-  });
+    })
+  })
 
   describe("checkUserPassword fn", () => {
 
@@ -249,8 +249,8 @@ describe("LoginBlock", () => {
 
       instance.checkUserPassword(mockUser)
 
-      expect(spy).toHaveBeenCalledWith(mockUser);
-    });
+      expect(spy).toHaveBeenCalledWith(mockUser)
+    })
 
     it("should add error message to state if password is not correct when checkUserPassword is called", () => {
       block.setState({password: '1111'})
@@ -262,22 +262,22 @@ describe("LoginBlock", () => {
       const error = 'Password is incorrect!'
 
       expect(block.state('error')).toEqual(error)
-    });
-  });
+    })
+  })
 
   describe("pushUser", () => {
     it("should call addUserInfo props when pushUser is called", () => {
       instance.pushUser(mockUser)
       expect(addUserInfo).toHaveBeenCalledWith(mockUser)
-    });
+    })
 
     it("should call addItem when pushUser is called", () => {
       instance.pushUser(mockUser)
 
       expect(addItem).toHaveBeenCalledWith('user', mockUser)
-    });
-  });
-});
+    })
+  })
+})
 
 describe("mapDispatchToProps", () => {
   it("should call dispatch with an addUserInfo action when addUserInfo is called", () => {
@@ -289,6 +289,6 @@ describe("mapDispatchToProps", () => {
 
     const result = mockProps.addUserInfo(user)
 
-    expect(mockDispatch).toHaveBeenCalledWith(actionToDispatch);
-  });
-});
+    expect(mockDispatch).toHaveBeenCalledWith(actionToDispatch)
+  })
+})

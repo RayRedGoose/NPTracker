@@ -11,7 +11,7 @@ it("should return object with a type of ADD_PROCESS_NAME when addProcessName is 
   const result = actions.addProcessName(name)
 
   expect(result).toEqual(expected)
-});
+})
 
 it("should return object with a type of ADD_PROCESS_STEP when addProcessStep is called", () => {
   const step = 1
@@ -24,7 +24,7 @@ it("should return object with a type of ADD_PROCESS_STEP when addProcessStep is 
   const result = actions.addProcessStep(step)
 
   expect(result).toEqual(expected)
-});
+})
 
 it("should return object with a type of INCREASE_STEP when increaseStep is called", () => {
   const expected = { type: 'INCREASE_STEP' }
@@ -32,7 +32,7 @@ it("should return object with a type of INCREASE_STEP when increaseStep is calle
   const result = actions.increaseStep()
 
   expect(result).toEqual(expected)
-});
+})
 
 it("should return object with a type of ADD_USER_INFO when addUserInfo is called", () => {
   const info = { name: 'Ray' }
@@ -45,7 +45,7 @@ it("should return object with a type of ADD_USER_INFO when addUserInfo is called
   const result = actions.addUserInfo(info)
 
   expect(result).toEqual(expected)
-});
+})
 
 it("should return object with a type of ADD_PARKS when addParks is called", () => {
   const parks = [{
@@ -66,7 +66,7 @@ it("should return object with a type of ADD_PARKS when addParks is called", () =
   const result = actions.addParks(parks)
 
   expect(result).toEqual(expected)
-});
+})
 
 it("should return object with a type of CHANGE_ACTIVE_TAB when changeActiveTab is called", () => {
   const expected = {
@@ -77,4 +77,4 @@ it("should return object with a type of CHANGE_ACTIVE_TAB when changeActiveTab i
   const result = actions.changeActiveTab(2)
 
   expect(result).toEqual(expected)
-});
+})

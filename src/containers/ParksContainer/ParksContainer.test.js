@@ -1,6 +1,6 @@
-import React from 'react';
-import { shallow } from 'enzyme';
-import { ParksContainer, mapStateToProps, mapDispatchToProps } from './ParksContainer';
+import React from 'react'
+import { shallow } from 'enzyme'
+import { ParksContainer, mapStateToProps, mapDispatchToProps } from './ParksContainer'
 import { getData } from 'apiCalls'
 import { addParks } from 'redux/actions'
 
@@ -26,11 +26,11 @@ describe("ParksContainer", () => {
       )
 
       instance = container.instance()
-    });
+    })
 
     it("should match snapshot with all data passed in correctly", () => {
-      expect(container).toMatchSnapshot();
-    });
+      expect(container).toMatchSnapshot()
+    })
 
     it("should call fetchParks method after rendering if there is no parks in props", async () => {
       const container = shallow(
@@ -46,67 +46,67 @@ describe("ParksContainer", () => {
 
       await instance.componentDidMount()
 
-      expect(spy).toHaveBeenCalled();
-    });
+      expect(spy).toHaveBeenCalled()
+    })
 
     it("should call createCards method after rendering", () => {
       const spy = jest.spyOn(instance, 'createCards')
         .mockImplementation(jest.fn())
       instance.forceUpdate()
 
-      expect(spy).toHaveBeenCalled();
-    });
+      expect(spy).toHaveBeenCalled()
+    })
 
     describe("fetchParks", () => {
       beforeEach(() => {
         getData.mockImplementation(() => Promise.resolve(mockParksData))
-      });
+      })
 
       it("should call getData when fetchParks is called", async () => {
 
         await instance.fetchParks()
 
-        expect(getData).toHaveBeenCalledWith('parks', 'park');
-      });
+        expect(getData).toHaveBeenCalledWith('parks', 'park')
+      })
 
       it("should call addParks prop when fetchParks is called", async () => {
 
         await instance.fetchParks()
 
-        expect(addParks).toHaveBeenCalledWith(mockParksData);
-      });
+        expect(addParks).toHaveBeenCalledWith(mockParksData)
+      })
 
       it("should change isLoaded state to true", async () => {
-        expect(container.state('isLoaded')).toEqual(false);
+        expect(container.state('isLoaded')).toEqual(false)
 
         await instance.fetchParks()
 
-        expect(container.state('isLoaded')).toEqual(true);
-      });
+        expect(container.state('isLoaded')).toEqual(true)
+      })
 
       it("should change isLoaded state to false if fetch is failed", async () => {
         getData.mockImplementation(() => Promise.reject(Error('Failed to fetch')))
 
         instance.setState({isLoaded: true})
 
-        expect(container.state('isLoaded')).toEqual(true);
+        expect(container.state('isLoaded')).toEqual(true)
 
         await instance.fetchParks()
 
-        expect(container.state('isLoaded')).toEqual(false);
-      });
+        expect(container.state('isLoaded')).toEqual(false)
+      })
 
       it("should change error state if fetch is failed", async () => {
         getData.mockImplementation(() => Promise.reject(Error('Failed to fetch')))
 
-        expect(container.state('error')).toEqual(null);
+        expect(container.state('error')).toEqual(null)
 
         await instance.fetchParks()
 
-        expect(container.state('error')).toEqual("Failed to fetch");
-      });
-    });
-  });
+        expect(container.state('error')).toEqual("Failed to fetch")
+      })
+    })
+  })
 
   describe("mapStateToProps", () => {
     it("should return the object with correct keys from store", () => {
@@ -122,9 +122,9 @@ describe("ParksContainer", () => {
 
       const result = mapStateToProps(mockStore)
 
-      expect(result).toEqual(expected);
-    });
-  });
+      expect(result).toEqual(expected)
+    })
+  })
 
   describe("mapDispatchToProps", () => {
     it("should call dispatch with addParks after addParks prop is called", () => {
@@ -134,7 +134,7 @@ describe("ParksContainer", () => {
 
       mockProps.addParks(mockParksData)
 
-      expect(mockDispatch).toHaveBeenCalledWith(actionToDispatch);
-    });
-  });
-});
+      expect(mockDispatch).toHaveBeenCalledWith(actionToDispatch)
+    })
+  })
+})

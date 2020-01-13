@@ -5,8 +5,8 @@ describe("parks", () => {
     const expected = []
     const result = parks(undefined, {})
 
-    expect(result).toEqual(expected);
-  });
+    expect(result).toEqual(expected)
+  })
 
   it("should return the parks array if type of action is ADD_PARKS", () => {
     const mockParks = [{
@@ -28,6 +28,6 @@ describe("parks", () => {
 
     const result = parks([], mockAction)
 
-    expect(result).toEqual(expected);
-  });
-});
+    expect(result).toEqual(expected)
+  })
+})

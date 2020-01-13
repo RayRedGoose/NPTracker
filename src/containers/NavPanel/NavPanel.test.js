@@ -1,7 +1,6 @@
-import React from 'react';
-import { shallow } from 'enzyme';
-import { NavPanel, mapStateToProps, mapDispatchToProps } from './NavPanel';
-import { NavLink } from 'react-router-dom'
+import React from 'react'
+import { shallow } from 'enzyme'
+import { NavPanel, mapStateToProps, mapDispatchToProps } from './NavPanel'
 import { changeActiveTab } from 'redux/actions'
 
 describe("NavPanel", () => {
@@ -16,26 +15,26 @@ describe("NavPanel", () => {
     )
 
     instance = panel.instance()
-  });
+  })
 
   it("should match snapshot with all data passed in correctly", () => {
     expect(panel).toMatchSnapshot()
-  });
+  })
 
   it("should call createTabs method after rendering", () => {
     const spy = jest.spyOn(instance, 'createTabs')
       .mockImplementation(jest.fn())
     instance.forceUpdate()
 
-    expect(spy).toHaveBeenCalled();
-  });
+    expect(spy).toHaveBeenCalled()
+  })
 
   it("should call changeActiveTab with target id when toggleTab is called", () => {
     const mockEvent = {target: {id: 2}}
     instance.toggleTab(mockEvent)
-    expect(changeActiveTab).toHaveBeenCalledWith(2);
-  });
-});
+    expect(changeActiveTab).toHaveBeenCalledWith(2)
+  })
+})
 
 describe("mapStateToProps", () => {
   it("should return the object with correct keys", () => {
@@ -50,9 +49,9 @@ describe("mapStateToProps", () => {
 
     const result = mapStateToProps(mockStore)
 
-    expect(result).toEqual(expected);
-  });
-});
+    expect(result).toEqual(expected)
+  })
+})
 
 describe("mapDispatchToProps", () => {
   it("should call dispatch with changeActiveTab when changeActiveTab is called", () => {
@@ -62,6 +61,6 @@ describe("mapDispatchToProps", () => {
 
     mockProps.changeActiveTab(2)
 
-    expect(mockDispatch).toHaveBeenCalledWith(actionToDispatch);
-  });
-});
+    expect(mockDispatch).toHaveBeenCalledWith(actionToDispatch)
+  })
+})

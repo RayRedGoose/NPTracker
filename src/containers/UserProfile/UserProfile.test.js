@@ -1,6 +1,6 @@
-import React from 'react';
-import { shallow } from 'enzyme';
-import { UserProfile, mapStateToProps } from './UserProfile';
+import React from 'react'
+import { shallow } from 'enzyme'
+import { UserProfile, mapStateToProps } from './UserProfile'
 
 describe("UserProfile", () => {
   it("should match snapshot with all data passed correctly", () => {
@@ -12,9 +12,9 @@ describe("UserProfile", () => {
         image: 'https://www.some.url/some.jpg'
       }}/>
     )
-    expect(profile).toMatchSnapshot();
-  });
-});
+    expect(profile).toMatchSnapshot()
+  })
+})
 
 describe("mapStateToProps", () => {
   it("should return the object with correct key from store", () => {
@@ -29,6 +29,6 @@ describe("mapStateToProps", () => {
 
     const result = mapStateToProps(mockStore)
 
-    expect(result).toEqual(expected);
-  });
-});
+    expect(result).toEqual(expected)
+  })
+})

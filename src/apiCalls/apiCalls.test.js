@@ -20,13 +20,13 @@ describe("getData", () => {
         }
       })
     })
-  });
+  })
 
   it("should call fetch with correct url", () => {
     const url = 'https://developer.nps.gov/api/v1/parks?q=park&fields=images&limit=60&api_key=IpOkxICOi4tJPgJfN3LXvxXuOtWHz5iZdULtD2hd'
     getData('parks', 'park')
     expect(window.fetch).toHaveBeenCalledWith(url)
-  });
+  })
 
   it('should return an array with parks', () => {
     expect(getData('parks', 'park')).resolves.toEqual(mockParksData)
@@ -51,4 +51,4 @@ describe("getData", () => {
     expect(getData('parks', 'park')).rejects
       .toEqual(Error('Failed to fetch'))
   })
-});
+})

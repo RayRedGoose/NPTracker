@@ -34,7 +34,7 @@ export class App extends Component {
         { this.state.isLogged && <Redirect to='/parks' />}
         { routers }
       </main>
-    );
+    )
   }
 }
 
@@ -48,4 +48,4 @@ export const mapDispatchToProps = dispatch => (
   }, dispatch)
 )
 
-export default connect(mapStateToProps,mapDispatchToProps)(App);
+export default connect(mapStateToProps,mapDispatchToProps)(App)

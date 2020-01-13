@@ -1,6 +1,6 @@
-import React from 'react';
-import { shallow } from 'enzyme';
-import { App, mapStateToProps, mapDispatchToProps } from './App';
+import React from 'react'
+import { shallow } from 'enzyme'
+import { App, mapStateToProps, mapDispatchToProps } from './App'
 import { addUserInfo } from 'redux/actions'
 import { getItem } from '_utils/localStorage'
 
@@ -22,14 +22,14 @@ describe('App', () => {
 
     app = shallow(
       <App {...mockProps} />
-    );
+    )
 
     instance = app.instance()
-  });
+  })
 
   it("should call getItem after component was rendered", () => {
-    expect(getItem).toHaveBeenCalledWith('user');
-  });
+    expect(getItem).toHaveBeenCalledWith('user')
+  })
 
   it("should call addUser method if user info was taken from localStorage after component was rendered", () => {
     getItem.mockImplementation(()=> user)
@@ -38,27 +38,27 @@ describe('App', () => {
 
     instance.componentDidMount()
 
-    expect(spy).toHaveBeenCalledWith(user);
-  });
+    expect(spy).toHaveBeenCalledWith(user)
+  })
 
   it("should call addUserInfo prop with user argument if addUser is called", () => {
     instance.addUser(user)
 
-    expect(addUserInfo).toHaveBeenCalledWith(user);
-  });
+    expect(addUserInfo).toHaveBeenCalledWith(user)
+  })
 
   it("should change isLogged state if addUser is called", () => {
     getItem.mockImplementation(()=> null)
 
     app.setState({isLogged: false})
 
-    expect(app.state('isLogged')).toEqual(false);
+    expect(app.state('isLogged')).toEqual(false)
 
     instance.addUser(user)
 
-    expect(app.state('isLogged')).toEqual(true);
-  });
-});
+    expect(app.state('isLogged')).toEqual(true)
+  })
+})
 
 describe("mapStateToProps", () => {
   it("should return the object with correct key/value pairs from store", () => {
@@ -75,17 +75,17 @@ describe("mapStateToProps", () => {
 
     const result = mapStateToProps(mockStore)
 
-    expect(result).toEqual(expected);
-  });
-});
+    expect(result).toEqual(expected)
+  })
+})
 
 describe("mapDispatchToProps", () => {
   let mockDispatch, mockProps
 
   beforeEach(() => {
     mockDispatch = jest.fn()
-    mockProps = mapDispatchToProps(mockDispatch);
-  });
+    mockProps = mapDispatchToProps(mockDispatch)
+  })
 
   it("should call dispatch with an addUserInfo action when addUserInfo is called", () => {
     const user = {name: 'Ray'}
@@ -94,6 +94,6 @@ describe("mapDispatchToProps", () => {
 
     const result = mockProps.addUserInfo(user)
 
-    expect(mockDispatch).toHaveBeenCalledWith(actionToDispatch);
-  });
-});
+    expect(mockDispatch).toHaveBeenCalledWith(actionToDispatch)
+  })
+})

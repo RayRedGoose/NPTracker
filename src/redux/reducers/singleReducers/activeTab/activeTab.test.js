@@ -5,8 +5,8 @@ describe("activeTab", () => {
     const expected = 1
     const result = activeTab(undefined, {})
 
-    expect(result).toEqual(expected);
-  });
+    expect(result).toEqual(expected)
+  })
 
   it("should return activeTab value with new data if type of action is CHANGE_ACTIVE_TAB", () => {
     const mockAction = {
@@ -18,6 +18,6 @@ describe("activeTab", () => {
 
     const result = activeTab(undefined, mockAction)
 
-    expect(result).toEqual(expected);
-  });
-});
+    expect(result).toEqual(expected)
+  })
+})
