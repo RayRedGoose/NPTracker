@@ -29,9 +29,6 @@ export class App extends Component {
     const { user, process } = this.props
     return (
       <main className="app">
-        { (!user || !process) &&
-          <Redirect to='/welcome' /> }
-        { this.state.isLogged && <Redirect to='/' />}
         { routers }
       </main>
     )

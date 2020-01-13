@@ -27,36 +27,44 @@ describe('App', () => {
     instance = app.instance()
   })
 
+  describe("Snapshots", () => {
+    it("should match snapshot with all data passed in correctly", () => {
+      expect(app).toMatchSnapshot()
+    })
+  });
+
   it("should call getItem after component was rendered", () => {
     expect(getItem).toHaveBeenCalledWith('user')
   })
 
-  it("should call addUser method if user info was taken from localStorage after component was rendered", () => {
-    getItem.mockImplementation(()=> user)
+  describe("addUser", () => {
+    it("should call addUser method if user info was taken from localStorage after component was rendered", () => {
+      getItem.mockImplementation(()=> user)
 
-    const spy = jest.spyOn(instance, 'addUser').mockImplementation()
+      const spy = jest.spyOn(instance, 'addUser').mockImplementation()
 
-    instance.componentDidMount()
+      instance.componentDidMount()
 
-    expect(spy).toHaveBeenCalledWith(user)
-  })
+      expect(spy).toHaveBeenCalledWith(user)
+    })
 
-  it("should call addUserInfo prop with user argument if addUser is called", () => {
-    instance.addUser(user)
+    it("should call addUserInfo prop with user argument if addUser is called", () => {
+      instance.addUser(user)
 
-    expect(addUserInfo).toHaveBeenCalledWith(user)
-  })
+      expect(addUserInfo).toHaveBeenCalledWith(user)
+    })
 
-  it("should change isLogged state if addUser is called", () => {
-    getItem.mockImplementation(()=> null)
+    it("should change isLogged state if addUser is called", () => {
+      getItem.mockImplementation(()=> null)
 
-    app.setState({isLogged: false})
+      app.setState({isLogged: false})
 
-    expect(app.state('isLogged')).toEqual(false)
+      expect(app.state('isLogged')).toEqual(false)
 
-    instance.addUser(user)
+      instance.addUser(user)
 
-    expect(app.state('isLogged')).toEqual(true)
+      expect(app.state('isLogged')).toEqual(true)
+    })
   })
 })
 
