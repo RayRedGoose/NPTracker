@@ -4,8 +4,8 @@
 .park-card {
   background-color: $darken-small;
   padding: 20px;
-  width: 30%;
-  margin-bottom: 20px;
+  width: 30%; height: fit-content;
+  margin: 0 17px 20px;
   .preview {
     width: 100%; height: 200px;
     background-position: center;
@@ -47,6 +47,7 @@
     text-align: center;
     text-decoration: none;
     margin-top: 20px;
+    height: 90px;
     &:hover {
       text-shadow: 0 0 10px $accent-color-secondary;
     }
