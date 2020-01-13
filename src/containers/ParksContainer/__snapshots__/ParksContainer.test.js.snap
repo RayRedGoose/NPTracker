@@ -1,0 +1,14 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ParksContainer ParksContainer container should match snapshot with all data passed in correctly 1`] = `
+<section
+  className="parks-content"
+>
+  <ParkCardPreview
+    id={1}
+    image="images/some.jpg"
+    key="1"
+    name="Some National Park"
+  />
+</section>
+`;
