@@ -12,26 +12,26 @@ NPtracker is a system with National Parks information. The app purpose is to tra
 
 **Welcome Page**
 
-![Welcome Page](./screenshots/welcome.png)
+![Welcome Page](./screens/welcome.png)
 
 **Sign Up Page**
 
-![Sign Up Page](./screenshots/signup-1.png)
+![Sign Up Page](./screens/signup-1.png)
 
-![Sign Up Page](./screenshots/signup-2.png)
+![Sign Up Page](./screens/signup-2.png)
 
 **Login Page**
 
-![Login Page](./screenshots/login.png)
+![Login Page](./screens/login.png)
 
 **All Parks Page**
 
-![All Parks Page](./screenshots/parks.png)
+![All Parks Page](./screens/parks.png)
 
 **Single Park Page**
 
-![Single Park Page](./screenshots/park.png)
+![Single Park Page](./screens/park.png)
 
 **Wish list Page**
 
-![Wish list Page](./screenshots/wish-list.png)
+![Wish list Page](./screens/wish-list.png)
