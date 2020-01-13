@@ -8,10 +8,6 @@ exports[`UserProfile should match snapshot with all data passed correctly 1`] = 
     <h2>
       Your Account
     </h2>
-    <img
-      alt="logout"
-      src="logout.svg"
-    />
   </header>
   <section>
     <div

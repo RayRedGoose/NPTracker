@@ -8,8 +8,8 @@ import { addParks } from 'redux/actions'
 import ParkCardPreview from 'containers/ParkCardPreview/ParkCardPreview'
 
 export class ParksContainer extends Component {
-  constructor() {
-    super()
+  constructor(props) {
+    super(props)
     this.state = {
       isLoaded: false,
       error: null
@@ -35,7 +35,10 @@ export class ParksContainer extends Component {
   }
 
   createCards = () => {
-    return this.props.parks.map(park => (
+    const { parks, type, plannedParks } = this.props
+    const planned = parks.filter(park => plannedParks.includes(park.name))
+    const data = (type === 'all') ? parks : planned
+    return data.map(park => (
       <ParkCardPreview
         key={park.id}
         id={park.id}
@@ -66,7 +69,9 @@ export const mapDispatchToProps = dispatch => (
 )
 
 ParksContainer.propTypes = {
+  type: PropTypes.string.isRequired,
   parks: PropTypes.arrayOf(PropTypes.object).isRequired,
+  plannedParks: PropTypes.arrayOf(PropTypes.string).isRequired,
   addParks: PropTypes.func.isRequired
 }
 

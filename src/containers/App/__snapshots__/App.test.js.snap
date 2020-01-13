@@ -33,6 +33,11 @@ exports[`App Snapshots should match snapshot with all data passed in correctly 1
     />
     <Route
       exact={true}
+      path="/wish-list"
+      render={[Function]}
+    />
+    <Route
+      exact={true}
       path="/parks/:park"
       render={[Function]}
     />

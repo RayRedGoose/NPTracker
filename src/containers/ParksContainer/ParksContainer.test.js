@@ -21,7 +21,9 @@ describe("ParksContainer", () => {
     beforeEach(() => {
       container = shallow(
         <ParksContainer
+          type="all"
           parks={mockParksData}
+          plannedParks={[]}
           addParks={addParks} />
       )
 
@@ -35,7 +37,9 @@ describe("ParksContainer", () => {
     it("should call fetchParks method after rendering if there is no parks in props", async () => {
       const container = shallow(
         <ParksContainer
+          type="all"
           parks={[]}
+          plannedParks={[]}
           addParks={addParks} />
       )
 

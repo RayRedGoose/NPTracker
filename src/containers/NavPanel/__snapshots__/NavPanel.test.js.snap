@@ -7,15 +7,6 @@ exports[`NavPanel should match snapshot with all data passed in correctly 1`] = 
   <NavLink
     className="nav-tab tab-active"
     id={1}
-    key="dashboard"
-    onClick={[Function]}
-    to="/dashboard"
-  >
-    dashboard
-  </NavLink>
-  <NavLink
-    className="nav-tab"
-    id={2}
     key="parks"
     onClick={[Function]}
     to="/parks"
@@ -24,16 +15,7 @@ exports[`NavPanel should match snapshot with all data passed in correctly 1`] = 
   </NavLink>
   <NavLink
     className="nav-tab"
-    id={3}
-    key="visited"
-    onClick={[Function]}
-    to="/visited"
-  >
-    visited
-  </NavLink>
-  <NavLink
-    className="nav-tab"
-    id={4}
+    id={2}
     key="wish-list"
     onClick={[Function]}
     to="/wish-list"

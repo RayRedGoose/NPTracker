@@ -12,7 +12,7 @@ export class NavPanel extends Component {
   }
 
   createTabs = () => {
-    const tabNames = ['dashboard', 'parks', 'visited', 'wish list']
+    const tabNames = ['parks', 'wish list']
 
     return tabNames.map((tab, index) => {
       const tabClass = (this.props.activeTab === (index + 1)) ? 'nav-tab tab-active' : 'nav-tab'

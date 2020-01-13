@@ -9,7 +9,9 @@ export const UserProfile = ({ user }) => {
     <aside className="user-profile">
       <header>
         <h2>Your Account</h2>
-        <img src={logout} alt="logout"/>
+        {
+          //<img src={logout} alt="logout"/>
+        }
       </header>
       <section>
         <div className="image" style={{backgroundImage: `url(${user.image})`}}></div>

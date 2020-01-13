@@ -2,7 +2,7 @@ import { activeTab } from '../activeTab'
 
 describe("activeTab", () => {
   it("should return initial value", () => {
-    const expected = 1
+    const expected = 0
     const result = activeTab(undefined, {})
 
     expect(result).toEqual(expected)

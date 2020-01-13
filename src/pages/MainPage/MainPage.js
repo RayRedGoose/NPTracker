@@ -16,7 +16,7 @@ const MainPage = ({ Part, type }) => {
 
 MainPage.propTypes = {
   Part: PropTypes.elementType.isRequired,
-  type: PropTypes.string
+  type: PropTypes.string.isRequired
 }
 
 export default MainPage
