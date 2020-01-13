@@ -31,7 +31,7 @@ describe('App', () => {
     it("should match snapshot with all data passed in correctly", () => {
       expect(app).toMatchSnapshot()
     })
-  });
+  })
 
   it("should call getItem after component was rendered", () => {
     expect(getItem).toHaveBeenCalledWith('user')
