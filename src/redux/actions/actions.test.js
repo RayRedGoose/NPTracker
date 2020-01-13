@@ -78,3 +78,21 @@ it("should return object with a type of CHANGE_ACTIVE_TAB when changeActiveTab i
 
   expect(result).toEqual(expected)
 })
+
+it("should return object with a type of SELECT_PARK when selectPark is called", () => {
+  const mockPark = {
+    id: 1,
+    fullName: 'Some Park',
+    description: 'Some description here',
+    images: [{url: '/some.img.jpg'}]
+  }
+
+  const expected = {
+    type: 'SELECT_PARK',
+    park: mockPark
+  }
+
+  const result = actions.selectPark(mockPark)
+
+  expect(result).toEqual(expected)
+})
