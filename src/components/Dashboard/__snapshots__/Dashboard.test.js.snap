@@ -1,0 +1,11 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Dashboard should match the snapshot with all data passed in correctly 1`] = `
+<section
+  className="dashboard"
+>
+  <h2>
+    Please, click on tab to see information
+  </h2>
+</section>
+`;
