@@ -5,7 +5,7 @@ import { bindActionCreators } from 'redux'
 import { NavLink } from 'react-router-dom'
 import { addPlannedPark, removePlannedPark } from 'redux/actions'
 import { addItem, addItemToAll } from '_utils/localStorage'
-import done from 'assets/done.svg'
+// import done from 'assets/done.svg'
 import bell from 'assets/bell.svg'
 import bellFull from 'assets/bell-full.svg'
 
