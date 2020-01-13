@@ -1,0 +1,37 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`should match snapshot with all data passed in correctly 1`] = `
+<section
+  className="park-card"
+  id={1}
+>
+  <div
+    className="preview"
+    style={
+      Object {
+        "backgroundImage": "url(https://www.some.url/preview.jpg)",
+      }
+    }
+  >
+    <header>
+      <section>
+        <img
+          alt="flag"
+          src="done.svg"
+        />
+        <img
+          alt="bell "
+          src="bell.svg"
+        />
+      </section>
+      <img
+        alt="arrow"
+        src="more.svg"
+      />
+    </header>
+  </div>
+  <h2>
+    Some National Park
+  </h2>
+</section>
+`;
