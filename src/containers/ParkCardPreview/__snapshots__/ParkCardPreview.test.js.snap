@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`should match snapshot with all data passed in correctly 1`] = `
+exports[`ParkCardPreview should match snapshot with all data passed in correctly 1`] = `
 <section
   className="park-card"
   id={1}
@@ -21,19 +21,16 @@ exports[`should match snapshot with all data passed in correctly 1`] = `
       </p>
       <section>
         <img
-          alt="flag"
-          src="done.svg"
-        />
-        <img
-          alt="bell "
-          src="bell.svg"
+          alt="bell"
+          onClick={[Function]}
+          src="bell-full.svg"
         />
       </section>
     </header>
   </div>
   <NavLink
     className="title"
-    to="/parks/some"
+    to="/parks/some-park"
   >
     Some National Park
   </NavLink>
