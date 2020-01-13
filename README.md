@@ -12,7 +12,7 @@ NPtracker is a system with National Parks information. The app purpose is to tra
 
 **Welcome Page**
 
-![Welcome Page](./screens/welcome.png)
+![Welcome Page](./screens/welcome-page.png)
 
 **Sign Up Page**
 
