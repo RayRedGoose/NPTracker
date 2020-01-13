@@ -5,9 +5,12 @@ import ParkCardPreview from './ParkCardPreview'
 it("should match snapshot with all data passed in correctly", () => {
   const card = shallow(
     <ParkCardPreview
+      key={1}
       id={1}
-      image="https://www.some.url/preview.jpg"
-      name="Some National Park"/>
+      fullName="Some National Park"
+      name="Some"
+      states="WA"
+      image="https://www.some.url/preview.jpg"/>
   )
   expect(card).toMatchSnapshot()
 })

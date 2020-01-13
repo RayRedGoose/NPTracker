@@ -14,6 +14,11 @@ exports[`should match snapshot with all data passed in correctly 1`] = `
     }
   >
     <header>
+      <p
+        className="location"
+      >
+        WA
+      </p>
       <section>
         <img
           alt="flag"
@@ -24,14 +29,13 @@ exports[`should match snapshot with all data passed in correctly 1`] = `
           src="bell.svg"
         />
       </section>
-      <img
-        alt="arrow"
-        src="more.svg"
-      />
     </header>
   </div>
-  <h2>
+  <NavLink
+    className="title"
+    to="/parks/some"
+  >
     Some National Park
-  </h2>
+  </NavLink>
 </section>
 `;
