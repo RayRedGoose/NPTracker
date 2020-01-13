@@ -16,7 +16,6 @@ export class ParksContainer extends Component {
   }
 
   componentDidMount() {
-    console.log('hi');
     if (!this.props.parks.length) this.fetchParks()
   }
 

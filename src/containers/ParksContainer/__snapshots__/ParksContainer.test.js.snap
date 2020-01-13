@@ -5,10 +5,10 @@ exports[`ParksContainer ParksContainer container should match snapshot with all 
   className="parks-content"
 >
   <ParkCardPreview
+    fullName="Some National Park"
     id={1}
     image="images/some.jpg"
     key="1"
-    name="Some National Park"
   />
 </section>
 `;
