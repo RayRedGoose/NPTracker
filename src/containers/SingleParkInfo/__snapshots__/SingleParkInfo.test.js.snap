@@ -40,13 +40,9 @@ exports[`SingleParkInfo SingleParkInfo component Snapshots should match snapshot
     <footer>
       <p
         className="bell-no-active"
+        onClick={[Function]}
       >
         Add to wish list
-      </p>
-      <p
-        className="flag-no-active"
-      >
-        Mark as visited
       </p>
     </footer>
   </section>

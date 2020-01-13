@@ -2,9 +2,11 @@ import React from 'react'
 import { shallow } from 'enzyme'
 import { SingleParkInfo, mapStateToProps, mapDispatchToProps } from './SingleParkInfo'
 import { getData } from 'apiCalls'
-import { selectPark } from 'redux/actions'
+import { selectPark, addPlannedPark, removePlannedPark } from 'redux/actions'
+import { addItem, addItemToAll } from '_utils/localStorage'
 
 jest.mock('apiCalls')
+jest.mock('_utils/localStorage')
 
 describe("SingleParkInfo", () => {
   const mockPark = {
@@ -22,12 +24,17 @@ describe("SingleParkInfo", () => {
     let container, instance
 
     const selectPark = jest.fn()
+    const addPlannedPark = jest.fn()
+    const removePlannedPark = jest.fn()
 
     const mockProps = {
       type: 'mount-rainier',
       parks: [mockPark],
       selectedPark: mockPark,
-      selectPark
+      plannedParks: ['Some Park'],
+      selectPark,
+      addPlannedPark,
+      removePlannedPark
     }
 
 
@@ -148,6 +155,71 @@ describe("SingleParkInfo", () => {
         expect(container.state('error')).toEqual('Failed')
       })
     })
+
+    describe("toggleWishLish", () => {
+      it("should call toggleWishLish when bell is clicked", () => {
+        const spy = jest.spyOn(instance, 'toggleWishLish')
+          .mockImplementation(jest.fn())
+        instance.forceUpdate()
+
+        container.find('footer p').simulate('click')
+
+        expect(spy).toHaveBeenCalled()
+      })
+
+      it("should call addToWishList when toggleWishLish is clicked and park name is in list", () => {
+        const spy = jest.spyOn(instance, 'addToWishList')
+          .mockImplementation(jest.fn())
+        instance.forceUpdate()
+
+        instance.toggleWishLish()
+
+        expect(spy).toHaveBeenCalledWith('Mount Rainier')
+      })
+
+      it("should call removeFromWishList when toggleWishLish is clicked and park name is in list", () => {
+        const container = shallow(
+          <SingleParkInfo {...mockProps} plannedParks={['Mount Rainier']} />
+        )
+        const instance = container.instance()
+
+        const spy = jest.spyOn(instance, 'removeFromWishList')
+          .mockImplementation(jest.fn())
+        instance.forceUpdate()
+
+        instance.toggleWishLish()
+
+        expect(spy).toHaveBeenCalledWith('Mount Rainier', ['Mount Rainier'])
+      })
+
+      it("should call addPlannedPark when addToWishList is clicked and park name is in list", () => {
+
+        instance.addToWishList('Some park')
+
+        expect(addPlannedPark).toHaveBeenCalledWith('Some park')
+      })
+
+      it("should call addItemToAll when addToWishList is clicked and park name is in list", () => {
+
+        instance.addToWishList('Some park')
+
+        expect(addItemToAll).toHaveBeenCalledWith('planning', 'Some park')
+      })
+
+      it("should call removePlannedPark when removeFromWishList is clicked and park name is in list", () => {
+
+        instance.removeFromWishList('Some park', ['Some park'])
+
+        expect(removePlannedPark).toHaveBeenCalledWith('Some park')
+      })
+
+      it("should call addItem when addToWishList is clicked and park name is in list", () => {
+
+        instance.addToWishList('Some park')
+
+        expect(addItem).toHaveBeenCalledWith('planning', [])
+      })
+    })
   })
 
   describe("mapStateToProps", () => {
@@ -155,12 +227,14 @@ describe("SingleParkInfo", () => {
       const mockStore = {
         parks: [mockPark],
         selectedPark: mockPark,
-        activeTab: 2
+        activeTab: 2,
+        plannedParks: ['Some Park']
       }
 
       const expected = {
         parks: [mockPark],
-        selectedPark: mockPark
+        selectedPark: mockPark,
+        plannedParks: ['Some Park']
       }
 
       const result = mapStateToProps(mockStore)
@@ -170,12 +244,32 @@ describe("SingleParkInfo", () => {
   })
 
   describe("mapDispatchToProps", () => {
+    let mockDispatch, mockProps
+    beforeEach(() => {
+      mockDispatch = jest.fn()
+      mockProps = mapDispatchToProps(mockDispatch)
+    })
+
     it("should call dispatch with selectPark after selectPark prop is called", () => {
-      const mockDispatch = jest.fn()
-      const mockProps = mapDispatchToProps(mockDispatch)
       const actionToDispatch = selectPark(mockPark)
 
       mockProps.selectPark(mockPark)
+
+      expect(mockDispatch).toHaveBeenCalledWith(actionToDispatch)
+    })
+
+    it("should call dispatch with addPlannedPark after addPlannedPark prop is called", () => {
+      const actionToDispatch = addPlannedPark('Mount Rainier')
+
+      mockProps.addPlannedPark('Mount Rainier')
+
+      expect(mockDispatch).toHaveBeenCalledWith(actionToDispatch)
+    })
+
+    it("should call dispatch with removePlannedPark after removePlannedPark prop is called", () => {
+      const actionToDispatch = removePlannedPark('Mount Rainier')
+
+      mockProps.removePlannedPark('Mount Rainier')
 
       expect(mockDispatch).toHaveBeenCalledWith(actionToDispatch)
     })

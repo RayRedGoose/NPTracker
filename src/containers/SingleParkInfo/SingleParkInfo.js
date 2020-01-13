@@ -3,7 +3,8 @@ import React, { Component } from 'react'
 import PropTypes from 'prop-types'
 import { connect } from 'react-redux'
 import { bindActionCreators } from 'redux'
-import { selectPark } from 'redux/actions'
+import { addItem, addItemToAll } from '_utils/localStorage'
+import { selectPark, addPlannedPark, removePlannedPark } from 'redux/actions'
 import { getData } from 'apiCalls'
 import arrow from 'assets/more.svg'
 
@@ -42,16 +43,39 @@ export class SingleParkInfo extends Component {
     }
   }
 
+  toggleWishLish = () => {
+    const { plannedParks, selectedPark } = this.props
+    return (!plannedParks.includes(selectedPark.name))
+      ? this.addToWishList(selectedPark.name)
+      : this.removeFromWishList(selectedPark.name, plannedParks)
+  }
+
+  addToWishList = (name) => {
+    this.props.addPlannedPark(name)
+    addItemToAll('planning', name)
+  }
+
+  removeFromWishList = (name, plannedParks) => {
+    this.props.removePlannedPark(name)
+    const newPlans = plannedParks.filter(park => park !== name)
+    addItem('planning', newPlans)
+  }
+
   render() {
+    const { selectedPark, plannedParks } = this.props
     const {
       fullName,
+      name,
       description,
       url,
       states,
       images,
       directionsInfo,
       weatherInfo,
-    } = this.props.selectedPark
+    } = selectedPark
+
+    const bellType = (plannedParks.includes(name)) ? 'bell-active' : 'bell-no-active'
+    const wishText = (plannedParks.includes(name)) ? 'Remove from wish list' : 'Add to wish list'
 
     return (
       this.state.isLoaded && <section className="single-park">
@@ -64,8 +88,10 @@ export class SingleParkInfo extends Component {
           <p className="location">{states}</p>
           <p className="desc">{description}</p>
           <footer>
-            <p className="bell-no-active">Add to wish list</p>
-            <p className="flag-no-active">Mark as visited</p>
+            <p className={ bellType } onClick={this.toggleWishLish}>{wishText}</p>
+            {
+              // <p className="flag-no-active">Mark as visited</p>
+            }
           </footer>
         </section>
         <section>
@@ -83,20 +109,23 @@ export class SingleParkInfo extends Component {
   }
 }
 
-export const mapStateToProps = ({ parks, selectedPark }) => ({
-  parks, selectedPark
+export const mapStateToProps = ({ parks, selectedPark, plannedParks }) => ({
+  parks, selectedPark, plannedParks
 })
 
 export const mapDispatchToProps = dispatch => (
   bindActionCreators({
-    selectPark
+    selectPark, addPlannedPark, removePlannedPark
   }, dispatch)
 )
 
 SingleParkInfo.propTypes = {
   parks: PropTypes.arrayOf(PropTypes.object).isRequired,
   selectedPark: PropTypes.object.isRequired,
+  plannedParks: PropTypes.arrayOf(PropTypes.string).isRequired,
   selectPark: PropTypes.func.isRequired,
+  addPlannedPark: PropTypes.func.isRequired,
+  removePlannedPark: PropTypes.func.isRequired,
   type: PropTypes.string.isRequired
 }
 
