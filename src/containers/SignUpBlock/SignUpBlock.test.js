@@ -28,7 +28,7 @@ describe("SignUpBlock", () => {
       name: 'signup',
       step: 1
     },
-    user: null,
+    user: {},
     addUserInfo,
     increaseStep
   }
@@ -261,13 +261,13 @@ describe("SignUpBlock", () => {
     it("should call addItem with correct argument when submitUser is called", () => {
       addItem.mockImplementation(jest.fn())
       instance.submitUser()
-      expect(addItem).toHaveBeenCalledWith('user', null)
+      expect(addItem).toHaveBeenCalledWith('user', {})
     })
 
     it("should call addItemToAll with correct argument when submitUser is called", () => {
       addItemToAll.mockImplementation(jest.fn())
       instance.submitUser()
-      expect(addItemToAll).toHaveBeenCalledWith('users', null)
+      expect(addItemToAll).toHaveBeenCalledWith('users', {})
     })
   })
 })

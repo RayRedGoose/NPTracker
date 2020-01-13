@@ -1,5 +1,6 @@
 import './SignUpBlock.scss'
 import React, { Component, Fragment } from 'react'
+import PropTypes from 'prop-types'
 import { connect } from 'react-redux'
 import { bindActionCreators } from 'redux'
 import matryoshka from 'assets/matryoshka.svg'
@@ -148,5 +149,12 @@ export const mapDispatchToProps = dispatch => (
     increaseStep
   }, dispatch)
 )
+
+SignUpBlock.propTypes = {
+  user: PropTypes.object.isRequired,
+  process: PropTypes.object.isRequired,
+  addUserInfo: PropTypes.func.isRequired,
+  increaseStep: PropTypes.func.isRequired
+}
 
 export default connect(mapStateToProps, mapDispatchToProps)(SignUpBlock)

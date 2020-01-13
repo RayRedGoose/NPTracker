@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import PropTypes from 'prop-types'
 import { Redirect } from 'react-router-dom'
 import { connect } from 'react-redux'
 import { bindActionCreators } from 'redux'
@@ -37,5 +38,13 @@ export const mapDispatchToProps = dispatch => (
     addProcessStep
   }, dispatch)
 )
+
+ProcessButton.propTypes = {
+  text: PropTypes.string.isRequired,
+  type: PropTypes.string.isRequired,
+  addProcessName: PropTypes.func.isRequired,
+  addProcessStep: PropTypes.func.isRequired
+}
+
 
 export default connect(null, mapDispatchToProps)(ProcessButton)

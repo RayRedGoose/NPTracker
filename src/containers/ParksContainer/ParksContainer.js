@@ -1,5 +1,6 @@
 import './ParksContainer.scss'
 import React, { Component } from 'react'
+import PropTypes from 'prop-types'
 import { connect } from 'react-redux'
 import { bindActionCreators } from 'redux'
 import { getData } from 'apiCalls'
@@ -63,5 +64,11 @@ export const mapDispatchToProps = dispatch => (
     addParks
   }, dispatch)
 )
+
+ParksContainer.propTypes = {
+  parks: PropTypes.arrayOf(PropTypes.object).isRequired,
+  addParks: PropTypes.func.isRequired
+}
+
 
 export default connect(mapStateToProps, mapDispatchToProps)(ParksContainer)

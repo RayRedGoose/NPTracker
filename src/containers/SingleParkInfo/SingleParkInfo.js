@@ -1,5 +1,6 @@
 import './SingleParkInfo.scss'
 import React, { Component } from 'react'
+import PropTypes from 'prop-types'
 import { connect } from 'react-redux'
 import { bindActionCreators } from 'redux'
 import { selectPark } from 'redux/actions'
@@ -91,5 +92,12 @@ export const mapDispatchToProps = dispatch => (
     selectPark
   }, dispatch)
 )
+
+SingleParkInfo.propTypes = {
+  parks: PropTypes.arrayOf(PropTypes.object).isRequired,
+  selectedPark: PropTypes.object.isRequired,
+  selectPark: PropTypes.func.isRequired,
+  type: PropTypes.string.isRequired
+}
 
 export default connect(mapStateToProps, mapDispatchToProps)(SingleParkInfo)

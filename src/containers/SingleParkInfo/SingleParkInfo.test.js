@@ -64,7 +64,7 @@ describe("SingleParkInfo", () => {
 
       it("should call fetchPark with type prop after rendering if there is parks data in store", () => {
         const container = shallow(
-          <SingleParkInfo {...mockProps} parks={{}} />
+          <SingleParkInfo {...mockProps} parks={[]} />
         )
 
         const instance = container.instance()

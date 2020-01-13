@@ -1,4 +1,5 @@
 import './LoginBlock.scss'
+import PropTypes from 'prop-types'
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import { bindActionCreators } from 'redux'
@@ -89,5 +90,9 @@ export const mapDispatchToProps = dispatch => (
     addUserInfo
   }, dispatch)
 )
+
+LoginBlock.propTypes = {
+  addUserInfo: PropTypes.func.isRequired
+}
 
 export default connect(null, mapDispatchToProps)(LoginBlock)

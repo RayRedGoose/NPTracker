@@ -1,5 +1,6 @@
 import './NavPanel.scss'
 import React, { Component } from 'react'
+import PropTypes from 'prop-types'
 import { connect } from 'react-redux'
 import { bindActionCreators } from 'redux'
 import { NavLink } from 'react-router-dom'
@@ -43,5 +44,10 @@ export const mapDispatchToProps = dispatch => (
     changeActiveTab
   }, dispatch)
 )
+
+NavPanel.propTypes = {
+  activeTab: PropTypes.number.isRequired,
+  changeActiveTab: PropTypes.func.isRequired
+}
 
 export default connect(mapStateToProps, mapDispatchToProps)(NavPanel)
