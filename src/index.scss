@@ -133,16 +133,20 @@ button {
     margin-top: 0;
   }
   .location {
-    text-transform: capitalize;
-    margin-top: 10px;
-    &:before {
-      content: "";
-      background-image: url('./assets/pin.svg');
-      background-position: center;
-      background-repeat: no-repeat;
-      width: 20px; height: 24px;
-      display: inline-block;
-    }
+    @extend %location;
+  }
+}
+
+%location {
+  text-transform: capitalize;
+  margin-top: 10px;
+  &:before {
+    content: "";
+    background-image: url('./assets/pin.svg');
+    background-position: center;
+    background-repeat: no-repeat;
+    width: 20px; height: 24px;
+    display: inline-block;
   }
 }
 

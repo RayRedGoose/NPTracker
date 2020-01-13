@@ -14,9 +14,7 @@ const routers = (
     <Route exact path='/login' render={() => <LoginPage />} />,
     <Route exact path='/signup' render={() => <SignUpPage />} />
     <Route exact path='/' render={() => <MainPage Part={ Dashboard } />} />
-    <Route exact path='/parks' render={() => <MainPage Part={ ParksContainer } type="all"/>} />
-    <Route exact path='/visited' render={() => <MainPage Part={ ParksContainer } type="done" />} />
-    <Route exact path='/wish-list' render={() => <MainPage Part={ ParksContainer } type="want" />} />
+    <Route exact path='/parks' render={() => <MainPage Part={ ParksContainer } />} />
   </Switch>
 )
 

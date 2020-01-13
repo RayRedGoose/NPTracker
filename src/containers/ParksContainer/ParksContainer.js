@@ -15,7 +15,8 @@ export class ParksContainer extends Component {
     }
   }
 
-  async componentDidMount() {
+  componentDidMount() {
+    console.log('hi');
     if (!this.props.parks.length) this.fetchParks()
   }
 
@@ -39,7 +40,9 @@ export class ParksContainer extends Component {
         key={park.id}
         id={park.id}
         image={park.images[0].url}
-        name={park.fullName} />
+        fullName={park.fullName}
+        name= {park.name}
+        states={park.states}/>
     ))
   }
 

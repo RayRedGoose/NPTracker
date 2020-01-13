@@ -31,7 +31,7 @@ export class App extends Component {
       <main className="app">
         { (!user || !process) &&
           <Redirect to='/welcome' /> }
-        { this.state.isLogged && <Redirect to='/parks' />}
+        { this.state.isLogged && <Redirect to='/' />}
         { routers }
       </main>
     )

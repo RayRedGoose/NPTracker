@@ -16,19 +16,39 @@
       display: flex;
       justify-content: space-between;
       padding: 10px;
+      section {
+        display: flex;
+        align-items: center;
+      }
+      .location {
+        display: flex;
+        align-items: center;
+        @extend %location;
+        color: $light-color;
+        margin-top: 0;
+        margin-right: 20px;
+        font-size: 20px;
+      }
       img {
         cursor: pointer;
         width: 20px;
         @extend %click-action;
-        margin: 0 10px;
+        margin-right: 10px;
       }
     }
   }
-  h2 {
+  .title {
     color: $accent-color-primary-light;
+    display: flex;
+    justify-content: center;
     font-family: "Salsa";
+    font-size: 24px;
     letter-spacing: 0.1em;
-    margin-top: 20px;
     text-align: center;
+    text-decoration: none;
+    margin-top: 20px;
+    &:hover {
+      text-shadow: 0 0 10px $accent-color-secondary;
+    }
   }
 }
