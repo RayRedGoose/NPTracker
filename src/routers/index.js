@@ -5,8 +5,9 @@ import LoginPage from 'pages/LoginPage/LoginPage'
 import MainPage from 'pages/MainPage/MainPage'
 import SignUpPage from 'pages/SignUpPage/SignUpPage'
 import Dashboard from 'containers/Dashboard/Dashboard'
+import Page404 from 'pages/Page404/Page404'
 import ParksContainer from 'containers/ParksContainer/ParksContainer'
-
+import SingleParkInfo from 'containers/SingleParkInfo/SingleParkInfo'
 
 const routers = (
   <Switch>
@@ -15,6 +16,8 @@ const routers = (
     <Route exact path='/signup' render={() => <SignUpPage />} />
     <Route exact path='/' render={() => <MainPage Part={ Dashboard } />} />
     <Route exact path='/parks' render={() => <MainPage Part={ ParksContainer } />} />
+    <Route exact path='/parks/:park' render={({match}) => <MainPage Part={ SingleParkInfo } type={match.params.park} />} />
+    <Route path="*" component={Page404} />
   </Switch>
 )
 
