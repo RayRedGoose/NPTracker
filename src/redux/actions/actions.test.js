@@ -96,3 +96,36 @@ it("should return object with a type of SELECT_PARK when selectPark is called", 
 
   expect(result).toEqual(expected)
 })
+
+it("should return object with a type of ADD_PLANNED_PARKS when addPlannedParks is called", () => {
+  const expected = {
+    type: 'ADD_PLANNED_PARKS',
+    parks: ['Some Park']
+  }
+
+  const result = actions.addPlannedParks(['Some Park'])
+
+  expect(result).toEqual(expected)
+})
+
+it("should return object with a type of ADD_PLANNED_PARK when addPlannedPark is called", () => {
+  const expected = {
+    type: 'ADD_PLANNED_PARK',
+    park: 'Some Park'
+  }
+
+  const result = actions.addPlannedPark('Some Park')
+
+  expect(result).toEqual(expected)
+})
+
+it("should return string with a type of REMOVE_PLANNED_PARK when removePlannedPark is called", () => {
+  const expected = {
+    type: 'REMOVE_PLANNED_PARK',
+    park: 'Some Park'
+  }
+
+  const result = actions.removePlannedPark('Some Park')
+
+  expect(result).toEqual(expected)
+})

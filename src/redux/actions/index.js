@@ -31,3 +31,18 @@ export const selectPark = park => ({
   type: 'SELECT_PARK',
   park
 })
+
+export const addPlannedParks = parks => ({
+  type: 'ADD_PLANNED_PARKS',
+  parks
+})
+
+export const addPlannedPark = park => ({
+  type: 'ADD_PLANNED_PARK',
+  park
+})
+
+export const removePlannedPark = park => ({
+  type: 'REMOVE_PLANNED_PARK',
+  park
+})
