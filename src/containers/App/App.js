@@ -20,7 +20,7 @@ export class App extends Component {
 
   addUserData = () => {
     const planning = getItem('planning')
-    this.props.addPlannedParks(planning)
+    if (planning) this.props.addPlannedParks(planning)
   }
 
   render() {
