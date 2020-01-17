@@ -1,0 +1,45 @@
+@import "../../variables.scss";
+@import "../../index.scss";
+
+.park-info {
+  grid-area: desc;
+  display: grid;
+  grid-template-areas: 'img head' 'img place' 'img desc';
+  padding: 20px;
+  height: 100%;
+  &>div {
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    grid-area: img;
+    width: 20vw; height: 100%;
+    margin-right: 20px;
+  }
+  header {
+    grid-area: head;
+    display: flex;
+    justify-content: space-between;
+    align-content: center;
+    margin-bottom: 10px;
+    h2 {
+      color: $accent-color-primary-light;
+      font-family: Salsa;
+      letter-spacing: 0.05em;
+      margin-right: 20px;
+    }
+  }
+  .location {
+    grid-area: place;
+    @extend %location;
+    margin-top: 0;
+    font-size: 18px;
+  }
+  .desc {
+    grid-area: desc;
+    margin-top: 20px;
+    font-size: 14px;
+    line-height: 1.5em;
+    height: 260px;
+    overflow: scroll;
+  }
+}

@@ -1,0 +1,38 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ParkDescription should match the snapshot with all data passed in correctly 1`] = `
+<section
+  className="park-info"
+>
+  <div
+    style={
+      Object {
+        "backgroundImage": "url(https://some.url/image.jpg)",
+      }
+    }
+  />
+  <header>
+    <h2>
+      Mount Rainier National Park
+    </h2>
+    <a
+      href="https://some.url"
+    >
+      <img
+        alt="arrow"
+        src="more.svg"
+      />
+    </a>
+  </header>
+  <p
+    className="location"
+  >
+    WA
+  </p>
+  <p
+    className="desc"
+  >
+    Ascending to 14,410 feet above sea level, Mount Rainier stands as an icon in the Washington landscape.
+  </p>
+</section>
+`;
