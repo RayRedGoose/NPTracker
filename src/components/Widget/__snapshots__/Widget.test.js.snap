@@ -1,0 +1,48 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Widget should match the snapshot if it's directions widget 1`] = `
+<section
+  className="widgets directions"
+>
+  <h3>
+    directions
+     info
+  </h3>
+  <p>
+    This is directions info text
+  </p>
+  <Map
+    name="Mount Rainier"
+  />
+</section>
+`;
+
+exports[`Widget should match the snapshot if there is no text 1`] = `
+<section
+  className="widgets weather"
+>
+  <h3>
+    weather
+     info
+  </h3>
+  <p>
+    There is no 
+    weather
+     info.
+  </p>
+</section>
+`;
+
+exports[`Widget should match the snapshot with all data passed in correctly 1`] = `
+<section
+  className="widgets weather"
+>
+  <h3>
+    weather
+     info
+  </h3>
+  <p>
+    Weather info text
+  </p>
+</section>
+`;

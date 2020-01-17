@@ -1,0 +1,34 @@
+@import "../../variables.scss";
+
+.widgets {
+  padding: 20px;
+  h3 {
+    color: $accent-color-primary-dark;
+    font-family: Salsa;
+    text-align: center;
+    text-transform: capitalize;
+    margin-bottom: 20px;
+  }
+  p {
+    font-size: 14px;
+    line-height: 1.5em;
+  }
+  &.directions {
+    grid-area: direct;
+    height: 100%;
+    &>p {
+      margin-bottom: 20px;
+      height: 240px;
+      overflow: scroll;
+    }
+    .place {
+      color: black;
+      font-size: 12px;
+      font-weight: 700;
+      width: 50%;
+    }
+  }
+  &.weather {
+    grid-area: weather;
+  }
+}
