@@ -1,0 +1,33 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`LoadingImage should match the snapshot with all data passed in correctly 1`] = `
+<section
+  className="loading-image"
+>
+  <div>
+    <img
+      alt="note"
+      src="note.svg"
+    />
+    <img
+      alt="note"
+      src="note-1.svg"
+    />
+    <img
+      alt="note"
+      src="note-2.svg"
+    />
+    <img
+      alt="note"
+      src="note-3.svg"
+    />
+  </div>
+  <img
+    alt="balalaika"
+    src="balalaika.svg"
+  />
+  <p>
+    loading...
+  </p>
+</section>
+`;

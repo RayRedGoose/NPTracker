@@ -1,0 +1,52 @@
+@import "../../variables.scss";
+
+.loading-image {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  p {
+    background-color: $bg-color-primary;
+    color: $accent-color-primary-dark;
+    font-weight: 700;
+    letter-spacing: 0.5em;
+    position: absolute;
+    bottom: 30vh;
+    padding: 10px;
+  }
+  &>img {
+    width: 150px;
+  }
+  div {
+    img {
+      width: 30px;
+      position: absolute;
+      top: 50vh;
+      $total: 4;
+      @for $i from 1 through $total {
+        &:nth-child(#{$i}) {
+          $new: $i - 1;
+          transform: translate($new * 25px, -$new * 10px);
+          animation: fly-#{$i} 5s $new*3s linear infinite;
+          opacity: 0;
+        }
+
+        @keyframes fly-#{$i} {
+          0% {
+            opacity: 0;
+          }
+          20% {
+            opacity: 1;
+          }
+          90% {
+            opacity: 1;
+          }
+          100% {
+            $new: 1 - $i;
+            transform: translate(-$new*2vw, -20vh);
+            opacity: 0;
+          }
+        }
+      }
+    }
+  }
+}
