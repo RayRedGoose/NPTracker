@@ -6,6 +6,7 @@ import { bindActionCreators } from 'redux'
 import { getData } from 'apiCalls'
 import { addParks } from 'redux/actions'
 import ParkCardPreview from 'containers/ParkCardPreview/ParkCardPreview'
+import LoadingImage from '../../components/LoadingImage/LoadingImage'
 
 export class ParksContainer extends Component {
   constructor(props) {
@@ -50,9 +51,12 @@ export class ParksContainer extends Component {
   }
 
   render() {
+    const { isLoaded, error } = this.state
     return (
       <section className="parks-content">
-        { this.createCards()}
+        { !isLoaded && !error && <LoadingImage /> }
+        { error && <p>{error}</p> }
+        { isLoaded && this.createCards() }
       </section>
     )
   }

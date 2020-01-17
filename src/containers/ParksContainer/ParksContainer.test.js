@@ -30,7 +30,17 @@ describe("ParksContainer", () => {
       instance = container.instance()
     })
 
-    it("should match snapshot with all data passed in correctly", () => {
+    it("should match snapshot with all data passed in correctly and isLoaded is true", () => {
+      container.setState({isLoaded: true})
+      expect(container).toMatchSnapshot()
+    })
+
+    it("should match snapshot if isLoaded is false but there is no error", () => {
+      expect(container).toMatchSnapshot()
+    })
+
+    it("should match snapshot if there is an error", () => {
+      container.setState({error: 'This is error!'})
       expect(container).toMatchSnapshot()
     })
 
@@ -53,10 +63,12 @@ describe("ParksContainer", () => {
       expect(spy).toHaveBeenCalled()
     })
 
-    it("should call createCards method after rendering", () => {
+    it("should call createCards method after rendering if there is park loaded", () => {
       const spy = jest.spyOn(instance, 'createCards')
         .mockImplementation(jest.fn())
       instance.forceUpdate()
+
+      container.setState({isLoaded: true})
 
       expect(spy).toHaveBeenCalled()
     })
