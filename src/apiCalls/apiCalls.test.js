@@ -23,7 +23,8 @@ describe("getData", () => {
   })
 
   it("should call fetch with correct url", () => {
-    const url = 'https://developer.nps.gov/api/v1/parks?q=park&fields=images&limit=60&api_key=IpOkxICOi4tJPgJfN3LXvxXuOtWHz5iZdULtD2hd'
+    const apiKey = 'jifXT2Vf98f3NV0eJEEVe6nMf04XQVPYzznfolCL'
+    const url = `https://developer.nps.gov/api/v1/parks?q=park&fields=images&limit=60&api_key=${apiKey}`
     getData('parks', 'park')
     expect(window.fetch).toHaveBeenCalledWith(url)
   })
