@@ -1,6 +1,7 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
 import './index.scss'
+import 'mapbox-gl/dist/mapbox-gl.css'
 import App from 'containers/App/App'
 import * as serviceWorker from './serviceWorker'
 import { BrowserRouter } from 'react-router-dom'
