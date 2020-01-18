@@ -93,6 +93,7 @@ describe("ParksContainer", () => {
       })
 
       it("should change isLoaded state to true", async () => {
+        container.setState({isLoaded: false})
         expect(container.state('isLoaded')).toEqual(false)
 
         await instance.fetchParks()

@@ -4,7 +4,12 @@ exports[`ParksContainer ParksContainer container should match snapshot if isLoad
 <section
   className="parks-content"
 >
-  <LoadingImage />
+  <Connect(ParkCardPreview)
+    fullName="Some National Park"
+    id={1}
+    image="images/some.jpg"
+    key="1"
+  />
 </section>
 `;
 
@@ -15,6 +20,12 @@ exports[`ParksContainer ParksContainer container should match snapshot if there 
   <p>
     This is error!
   </p>
+  <Connect(ParkCardPreview)
+    fullName="Some National Park"
+    id={1}
+    image="images/some.jpg"
+    key="1"
+  />
 </section>
 `;
 

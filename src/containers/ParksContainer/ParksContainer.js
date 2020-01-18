@@ -18,7 +18,9 @@ export class ParksContainer extends Component {
   }
 
   componentDidMount() {
-    if (!this.props.parks.length) this.fetchParks()
+    return (!this.props.parks.length)
+      ? this.fetchParks()
+      : this.setState({isLoaded: true})
   }
 
   fetchParks = async () => {

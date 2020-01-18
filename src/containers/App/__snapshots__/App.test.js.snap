@@ -28,6 +28,11 @@ exports[`App Snapshots should match snapshot with all data passed in correctly 1
     />
     <Route
       exact={true}
+      path="/dashboard"
+      render={[Function]}
+    />
+    <Route
+      exact={true}
       path="/parks"
       render={[Function]}
     />

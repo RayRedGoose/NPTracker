@@ -9,7 +9,7 @@ exports[`SingleParkInfo SingleParkInfo component Snapshots should match snapshot
   <ParkDescription
     description="Ascending to 14,410 feet above sea level, Mount Rainier stands as an icon in the Washington landscape."
     fullName="Mount Rainier National Park"
-    image="/some.img3.jpg"
+    image="/some.img1.jpg"
     states="WA"
     url="https://www.nps.gov/mora/index.htm"
   />
