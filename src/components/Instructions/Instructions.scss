@@ -1,0 +1,32 @@
+@import "../../variables.scss";
+
+.instructions {
+  h2 {
+    color: $accent-color-primary-light;
+    font-family: Salsa;
+    font-size: 36px;
+    font-weight: 400;
+    letter-spacing: 0.1em;
+    margin: auto;
+    text-align: center;
+    animation: shows 6s linear infinite;
+    position: absolute;
+    top: 45%;
+    width: 85%;
+  }
+}
+
+@keyframes shows {
+  0% {
+    opacity: 0;
+  }
+  40% {
+    opacity: 1;
+  }
+  80% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}

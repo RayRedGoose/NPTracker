@@ -1,0 +1,11 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Instructions should match the snapshot with all data passed in correctly 1`] = `
+<section
+  className="instructions"
+>
+  <h2>
+    Click on 'Dashboard' tab to see your summary
+  </h2>
+</section>
+`;
