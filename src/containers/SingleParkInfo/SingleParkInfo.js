@@ -3,7 +3,6 @@ import React, { Component } from 'react'
 import PropTypes from 'prop-types'
 import { connect } from 'react-redux'
 import { bindActionCreators } from 'redux'
-import { addItem, addItemToAll } from '_utils/localStorage'
 import { selectPark } from 'redux/actions'
 import { getData } from 'apiCalls'
 import Widget from 'components/Widget/Widget'
@@ -62,7 +61,7 @@ export class SingleParkInfo extends Component {
       <section className="single-park">
         <ParkDescription
           {...{fullName, url, states, description}}
-          image={images[2].url || images[0].url} />
+          image={images[0].url} />
         <Widget title="planning" />
         <Widget title="directions" text={directionsInfo} data={{ latLong, name }} />
         <Widget title="weather" text={weatherInfo}  />
