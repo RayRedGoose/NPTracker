@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`ParksContainer ParksContainer container should match snapshot if isLoaded is false but there is no error 1`] = `
+exports[`ParksContainer ParksContainer container Snapshots should match snapshot if isLoaded is false but there is no error 1`] = `
 <section
   className="parks-content"
 >
@@ -9,11 +9,14 @@ exports[`ParksContainer ParksContainer container should match snapshot if isLoad
     id={1}
     image="images/some.jpg"
     key="1"
+    name="Some"
+    states="WA"
+    type="parks"
   />
 </section>
 `;
 
-exports[`ParksContainer ParksContainer container should match snapshot if there is an error 1`] = `
+exports[`ParksContainer ParksContainer container Snapshots should match snapshot if there is an error 1`] = `
 <section
   className="parks-content"
 >
@@ -25,11 +28,14 @@ exports[`ParksContainer ParksContainer container should match snapshot if there 
     id={1}
     image="images/some.jpg"
     key="1"
+    name="Some"
+    states="WA"
+    type="parks"
   />
 </section>
 `;
 
-exports[`ParksContainer ParksContainer container should match snapshot with all data passed in correctly and isLoaded is true 1`] = `
+exports[`ParksContainer ParksContainer container Snapshots should match snapshot with all data passed in correctly and isLoaded is true 1`] = `
 <section
   className="parks-content"
 >
@@ -38,6 +44,9 @@ exports[`ParksContainer ParksContainer container should match snapshot with all 
     id={1}
     image="images/some.jpg"
     key="1"
+    name="Some"
+    states="WA"
+    type="parks"
   />
 </section>
 `;

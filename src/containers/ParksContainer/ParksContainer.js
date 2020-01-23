@@ -38,18 +38,39 @@ export class ParksContainer extends Component {
   }
 
   createCards = () => {
-    const { parks, type, plannedParks } = this.props
-    const planned = parks.filter(park => plannedParks.includes(park.name))
-    const data = (type === 'all') ? parks : planned
-    return data.map(park => (
+    const { process, parks } = this.props
+    const { parksForCard, type } = (process && process.name === 'search')
+      ? this.searchParks(parks, process.query)
+      : this.chooseParksType()
+
+    return parksForCard.map(park => (
       <ParkCardPreview
         key={park.id}
         id={park.id}
         image={park.images[0].url}
         fullName={park.fullName}
         name= {park.name}
-        states={park.states}/>
+        states={park.states}
+        type={type}/>
     ))
+  }
+
+  searchParks = (parks, query) => {
+    const parksForCard = parks.filter(park => park.name.toLowerCase().includes(query))
+    return { parksForCard, type: 'parks'}
+  }
+
+  chooseParksType = () => {
+    const { parks, type, plannedParks } = this.props
+    switch (type) {
+      case 'all':
+        return { parksForCard: parks, type: 'parks'}
+      case 'wish':
+        const parksForCard = parks.filter(park => plannedParks.includes(park.name))
+        return { parksForCard, type: 'wish-list'}
+      default:
+        return { parksForCard: [ ], type: ''}
+    }
   }
 
   render() {
@@ -64,22 +85,20 @@ export class ParksContainer extends Component {
   }
 }
 
-export const mapStateToProps = ({parks, plannedParks}) => ({
-  parks, plannedParks
+export const mapStateToProps = ({parks, plannedParks, process}) => ({
+  parks, plannedParks, process
 })
 
 export const mapDispatchToProps = dispatch => (
-  bindActionCreators({
-    addParks
-  }, dispatch)
+  bindActionCreators({ addParks }, dispatch)
 )
 
 ParksContainer.propTypes = {
   type: PropTypes.string.isRequired,
   parks: PropTypes.arrayOf(PropTypes.object).isRequired,
   plannedParks: PropTypes.arrayOf(PropTypes.string).isRequired,
+  process: PropTypes.object,
   addParks: PropTypes.func.isRequired
 }
-
 
 export default connect(mapStateToProps, mapDispatchToProps)(ParksContainer)
