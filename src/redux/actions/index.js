@@ -17,6 +17,9 @@ export const addProcessQuery = query => ({
   query
 })
 
+export const removeProcess = () => ({
+  type: 'REMOVE_PROCESS'
+})
 
 export const addUserInfo = info => ({
   type: 'ADD_USER_INFO',

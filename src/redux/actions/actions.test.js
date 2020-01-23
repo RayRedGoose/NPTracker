@@ -47,6 +47,13 @@ it("should return object with a type of INCREASE_STEP when increaseStep is calle
   expect(result).toEqual(expected)
 })
 
+it("should return object with a type of REMOVE_PROCESS when increaseStep is called", () => {
+  const expected = { type: 'REMOVE_PROCESS' }
+
+  const result = actions.removeProcess()
+
+  expect(result).toEqual(expected)
+})
 
 it("should return object with a type of ADD_USER_INFO when addUserInfo is called", () => {
   const info = { name: 'Ray' }
