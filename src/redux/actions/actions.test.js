@@ -26,6 +26,19 @@ it("should return object with a type of ADD_PROCESS_STEP when addProcessStep is 
   expect(result).toEqual(expected)
 })
 
+it("should return object with a type of ADD_PROCESS_QUERY when addProcessStep is called", () => {
+  const query = "Rock"
+
+  const expected = {
+    type: 'ADD_PROCESS_QUERY',
+    query
+  }
+
+  const result = actions.addProcessQuery(query)
+
+  expect(result).toEqual(expected)
+})
+
 it("should return object with a type of INCREASE_STEP when increaseStep is called", () => {
   const expected = { type: 'INCREASE_STEP' }
 
@@ -33,6 +46,7 @@ it("should return object with a type of INCREASE_STEP when increaseStep is calle
 
   expect(result).toEqual(expected)
 })
+
 
 it("should return object with a type of ADD_USER_INFO when addUserInfo is called", () => {
   const info = { name: 'Ray' }

@@ -12,6 +12,12 @@ export const increaseStep = () => ({
   type: 'INCREASE_STEP'
 })
 
+export const addProcessQuery = query => ({
+  type: 'ADD_PROCESS_QUERY',
+  query
+})
+
+
 export const addUserInfo = info => ({
   type: 'ADD_USER_INFO',
   info
