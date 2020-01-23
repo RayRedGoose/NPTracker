@@ -3,7 +3,7 @@
 exports[`ParkCardPreview should match snapshot with all data passed in correctly 1`] = `
 <section
   className="park-card"
-  id={1}
+  id="1A"
 >
   <div
     className="preview"
@@ -30,7 +30,8 @@ exports[`ParkCardPreview should match snapshot with all data passed in correctly
   </div>
   <NavLink
     className="title"
-    to="/parks/some-park"
+    onClick={[Function]}
+    to="parks/some-national-park"
   >
     Some National Park
   </NavLink>

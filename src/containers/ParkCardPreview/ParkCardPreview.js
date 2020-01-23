@@ -3,14 +3,13 @@ import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import { bindActionCreators } from 'redux'
 import { NavLink } from 'react-router-dom'
-import { addPlannedPark, removePlannedPark } from 'redux/actions'
+import { addPlannedPark, removePlannedPark, removeProcess } from 'redux/actions'
 import { addItem, addItemToAll } from '_utils/localStorage'
 // import done from 'assets/done.svg'
 import bell from 'assets/bell.svg'
 import bellFull from 'assets/bell-full.svg'
 
 export class ParkCardPreview extends Component {
-
   toggleWishLish = () => {
     const { plannedParks, name } = this.props
     return (!plannedParks.includes(name))
@@ -29,10 +28,15 @@ export class ParkCardPreview extends Component {
     addItem('planning', newPlans)
   }
 
+  redirect = () => {
+    this.props.removeProcess()
+  }
+
   render() {
     const { id, image, fullName, name, states, plannedParks } = this.props
     const title = (fullName.length > 35 ) ? name : fullName
-    const link = name.toLowerCase().replace(/ /g, '-')
+    const link = fullName.toLowerCase().replace(/ /g, '-')
+    const pathForLink = `${this.props.type}/${link}`
     const bellType = (plannedParks.includes(name)) ? bellFull : bell
     return (
       <section id={id} className="park-card">
@@ -48,7 +52,7 @@ export class ParkCardPreview extends Component {
           </header>
         </div>
         <NavLink
-          to={`/parks/${link}`}
+          to={pathForLink}
           onClick={this.redirect}
           className="title">{ title }</NavLink>
       </section>
@@ -63,7 +67,8 @@ export const mapStateToProps = ({plannedParks}) => ({
 export const mapDispatchToProps = dispatch => (
   bindActionCreators({
     addPlannedPark,
-    removePlannedPark
+    removePlannedPark,
+    removeProcess
   }, dispatch)
 )
 

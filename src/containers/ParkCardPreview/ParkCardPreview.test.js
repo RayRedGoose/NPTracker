@@ -2,7 +2,7 @@ import React from 'react'
 import { shallow } from 'enzyme'
 import { ParkCardPreview, mapStateToProps, mapDispatchToProps } from './ParkCardPreview'
 import { addItem, addItemToAll } from '_utils/localStorage'
-import { addPlannedPark, removePlannedPark } from 'redux/actions'
+import { addPlannedPark, removePlannedPark, removeProcess } from 'redux/actions'
 
 jest.mock('_utils/localStorage')
 
@@ -10,16 +10,19 @@ describe("ParkCardPreview", () => {
   let card, instance
   const addPlannedPark = jest.fn()
   const removePlannedPark = jest.fn()
+  const removeProcess = jest.fn()
+
   const mockProps = {
-    key: 1,
-    id: 1,
+    id: '1A',
     fullName:"Some National Park",
     name: "Some park",
-    states:"WA",
-    image:"https://www.some.url/preview.jpg",
-    plannedParks:["Some park"],
+    states: "WA",
+    image: "https://www.some.url/preview.jpg",
+    plannedParks: ["Some park"],
+    type: "parks",
     addPlannedPark,
-    removePlannedPark
+    removePlannedPark,
+    removeProcess
   }
 
   beforeEach(() => {
@@ -28,6 +31,7 @@ describe("ParkCardPreview", () => {
     )
     instance = card.instance()
   })
+
   it("should match snapshot with all data passed in correctly", () => {
     expect(card).toMatchSnapshot()
   })
@@ -94,6 +98,13 @@ describe("ParkCardPreview", () => {
 
     expect(addItem).toHaveBeenCalledWith('planning', [])
   })
+
+  it("should call removeProcess prop when redirect is called", () => {
+
+    instance.redirect()
+
+    expect(removeProcess).toHaveBeenCalled()
+  })
 })
 
 describe("mapStateToProps", () => {
@@ -133,6 +144,14 @@ describe("mapDispatchToProps", () => {
     const actionToDispatch = removePlannedPark('Some park')
 
     mockProps.removePlannedPark('Some park')
+
+    expect(mockDispatch).toHaveBeenCalledWith(actionToDispatch)
+  })
+
+  it("should call dispatch with removeProcess after removeProcess prop is called", () => {
+    const actionToDispatch = removeProcess()
+
+    mockProps.removeProcess()
 
     expect(mockDispatch).toHaveBeenCalledWith(actionToDispatch)
   })
