@@ -4,11 +4,13 @@ import PropTypes from 'prop-types'
 import { connect } from 'react-redux'
 import { bindActionCreators } from 'redux'
 import { NavLink } from 'react-router-dom'
-import { changeActiveTab } from 'redux/actions'
+import { changeActiveTab, removeProcess } from 'redux/actions'
 
 export class NavPanel extends Component {
   toggleTab = (event) => {
-    this.props.changeActiveTab(+event.target.id)
+    const { changeActiveTab, removeProcess } = this.props
+    removeProcess()
+    changeActiveTab(+event.target.id)
   }
 
   createTabs = () => {
@@ -41,13 +43,14 @@ export const mapStateToProps = ({ activeTab }) => ({
 
 export const mapDispatchToProps = dispatch => (
   bindActionCreators({
-    changeActiveTab
+    changeActiveTab, removeProcess
   }, dispatch)
 )
 
 NavPanel.propTypes = {
   activeTab: PropTypes.number.isRequired,
-  changeActiveTab: PropTypes.func.isRequired
+  changeActiveTab: PropTypes.func.isRequired,
+  removeProcess: PropTypes.func.isRequired
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(NavPanel)

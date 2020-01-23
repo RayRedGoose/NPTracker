@@ -1,17 +1,19 @@
 import React from 'react'
 import { shallow } from 'enzyme'
 import { NavPanel, mapStateToProps, mapDispatchToProps } from './NavPanel'
-import { changeActiveTab } from 'redux/actions'
+import { changeActiveTab, removeProcess } from 'redux/actions'
 
 describe("NavPanel", () => {
   let panel, instance
   const changeActiveTab = jest.fn()
+  const removeProcess = jest.fn()
 
   beforeEach(() => {
     panel = shallow(
       <NavPanel
         activeTab={1}
-        changeActiveTab={changeActiveTab} />
+        changeActiveTab={changeActiveTab}
+        removeProcess={removeProcess} />
     )
 
     instance = panel.instance()
@@ -34,6 +36,12 @@ describe("NavPanel", () => {
     instance.toggleTab(mockEvent)
     expect(changeActiveTab).toHaveBeenCalledWith(2)
   })
+
+  it("should call changeActiveTab with target id when toggleTab is called", () => {
+    const mockEvent = {target: {id: 2}}
+    instance.toggleTab(mockEvent)
+    expect(removeProcess).toHaveBeenCalled()
+  })
 })
 
 describe("mapStateToProps", () => {
@@ -54,12 +62,25 @@ describe("mapStateToProps", () => {
 })
 
 describe("mapDispatchToProps", () => {
+  let mockDispatch, mockProps
+
+  beforeEach(() => {
+    mockDispatch = jest.fn()
+    mockProps = mapDispatchToProps(mockDispatch)
+  })
+
   it("should call dispatch with changeActiveTab when changeActiveTab is called", () => {
-    const mockDispatch = jest.fn()
-    const mockProps = mapDispatchToProps(mockDispatch)
     const actionToDispatch = changeActiveTab(2)
 
     mockProps.changeActiveTab(2)
+
+    expect(mockDispatch).toHaveBeenCalledWith(actionToDispatch)
+  })
+
+  it("should call dispatch with removeProcess when removeProcess is called", () => {
+    const actionToDispatch = removeProcess()
+
+    mockProps.removeProcess()
 
     expect(mockDispatch).toHaveBeenCalledWith(actionToDispatch)
   })
