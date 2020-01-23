@@ -1,5 +1,6 @@
 import './ParkCardPreview.scss'
 import React, { Component } from 'react'
+import PropTypes from 'prop-types'
 import { connect } from 'react-redux'
 import { bindActionCreators } from 'redux'
 import { NavLink } from 'react-router-dom'
@@ -58,6 +59,19 @@ export class ParkCardPreview extends Component {
       </section>
     )
   }
+}
+
+ParkCardPreview.propTypes = {
+  id: PropTypes.string.isRequired,
+  fullName: PropTypes.string.isRequired,
+  name: PropTypes.string.isRequired,
+  states: PropTypes.string.isRequired,
+  image: PropTypes.string.isRequired,
+  type: PropTypes.string.isRequired,
+  plannedParks: PropTypes.arrayOf(PropTypes.string).isRequired,
+  addPlannedPark: PropTypes.func.isRequired,
+  removePlannedPark: PropTypes.func.isRequired,
+  removeProcess: PropTypes.func.isRequired
 }
 
 export const mapStateToProps = ({plannedParks}) => ({
