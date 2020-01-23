@@ -43,4 +43,30 @@ describe("process", () => {
 
     expect(result).toEqual(expected)
   })
+
+  it("should return a process object if type of action is ADD_PROCESS_QUERY", () => {
+    const mockAction = {
+      type: 'ADD_PROCESS_QUERY',
+      query: 'Rock'
+    }
+
+    const expected = {
+      name: 'search',
+      query: 'Rock'
+    }
+
+    const result = process({ name: 'search' }, mockAction)
+
+    expect(result).toEqual(expected)
+  })
+
+  it("should return null if type of action is REMOVE_PROCESS", () => {
+    const mockAction = { type: 'REMOVE_PROCESS' }
+
+    const expected = null
+
+    const result = process({ name: 'search' }, mockAction)
+
+    expect(result).toEqual(expected)
+  })
 })

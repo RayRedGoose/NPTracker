@@ -6,6 +6,10 @@ export const process = (state = null, action) => {
       return {...state, step: action.step}
     case 'INCREASE_STEP':
       return {...state, step: state.step + 1}
+    case 'ADD_PROCESS_QUERY':
+      return {...state, query: action.query}
+    case 'REMOVE_PROCESS':
+      return null
     default:
       return state
   }
