@@ -1,7 +1,7 @@
 import React from 'react'
 import { shallow } from 'enzyme'
 import { App, mapStateToProps, mapDispatchToProps } from './App'
-import { addUserInfo, addPlannedParks } from 'redux/actions'
+import { addUserInfo, addPlannedParks, changeActiveTab } from 'redux/actions'
 import { getItem } from '_utils/localStorage'
 
 jest.mock('_utils/localStorage')
@@ -11,6 +11,7 @@ describe('App', () => {
 
   const addUserInfo = jest.fn()
   const addPlannedParks = jest.fn()
+  const changeActiveTab = jest.fn()
   const user = { name: 'Ray' }
   const process = null
 
@@ -19,7 +20,8 @@ describe('App', () => {
       user,
       process,
       addUserInfo,
-      addPlannedParks
+      addPlannedParks,
+      changeActiveTab
     }
 
     app = shallow(
@@ -66,6 +68,48 @@ describe('App', () => {
     })
   })
 
+  describe("checkActiveTab", () => {
+    it("should call checkActiveTab method after component was rendered", () => {
+      const spy = jest.spyOn(instance, 'checkActiveTab')
+        .mockImplementation(jest.fn())
+      instance.forceUpdate()
+
+      instance.componentDidMount()
+
+      expect(spy).toHaveBeenCalled()
+    })
+
+    it("should call changeActiveTab props with 0 if path is not tab", () => {
+      instance.checkActiveTab()
+
+      expect(changeActiveTab).toHaveBeenCalledWith(0)
+    })
+
+    it("should call changeActiveTab props with 1 if path is /dashboard", () => {
+      instance.checkActiveTab('/dashboard')
+
+      expect(changeActiveTab).toHaveBeenCalledWith(1)
+    })
+
+    it("should call changeActiveTab props with 2 if path is /parks", () => {
+      instance.checkActiveTab('/parks')
+
+      expect(changeActiveTab).toHaveBeenCalledWith(2)
+    })
+
+    it("should call changeActiveTab props with 3 if path is /wish-list", () => {
+      instance.checkActiveTab('/wish-list')
+
+      expect(changeActiveTab).toHaveBeenCalledWith(3)
+    })
+
+    it("should call changeActiveTab props with 4 if path is /visited", () => {
+      instance.checkActiveTab('/visited')
+
+      expect(changeActiveTab).toHaveBeenCalledWith(4)
+    })
+  });
+
   it("should call addPlannedParks prop with user argument if addUserData is called", () => {
     getItem.mockImplementation(() => ["Some park"])
 
@@ -99,6 +143,14 @@ describe("mapDispatchToProps", () => {
     const actionToDispatch = addPlannedParks(parks)
 
     const result = mockProps.addPlannedParks(parks)
+
+    expect(mockDispatch).toHaveBeenCalledWith(actionToDispatch)
+  })
+
+  it("should call dispatch with an changeActiveTab action when changeActiveTab is called", () => {
+    const actionToDispatch = changeActiveTab(1)
+
+    const result = mockProps.changeActiveTab(1)
 
     expect(mockDispatch).toHaveBeenCalledWith(actionToDispatch)
   })
