@@ -6,24 +6,30 @@ class Instructions extends Component {
     super()
     this.state = {
       text: 'Click on \'Dashboard\' tab to see your summary',
+      allTexts: [
+        'Click on \'Dashboard\' tab to see your summary',
+        'Click on \'Parks\' tab to see all national parks',
+        'Click on \'Wish List\' tab to see your plannings',
+        'Click on \'Visited\' tab to see your visited places'
+      ],
       count: 2
     }
   }
 
-  componentDidMount() {
-    const texts = [
-      'Click on \'Dashboard\' tab to see your summary',
-      'Click on \'Parks\' tab to see all national parks',
-      'Click on \'Wish List\' tab to see your plannings',
-      'Click on \'Visited\' tab to see your visited places'
-    ]
+  intervalID = 0
 
-    setInterval(() => {
-      let { count } = this.state
+  componentDidMount() {
+    const { allTexts, count } = this.state
+
+    this.intervalID = setInterval(() => {
       return (count !== 4)
-        ? this.setState({text: texts[count], count: count+1})
-        : this.setState({text: texts[0], count: 1})
+        ? this.setState({text: allTexts[count], count: count+1})
+        : this.setState({text: allTexts[0], count: 1})
     }, 6000)
+  }
+
+  componentWillUnmount() {
+    clearInterval(this.intervalID)
   }
 
   render() {
