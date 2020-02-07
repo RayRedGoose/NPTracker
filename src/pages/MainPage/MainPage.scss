@@ -3,8 +3,11 @@
   grid-template-areas: 'tabs user' 'main user';
   grid-template-columns: 4fr 1fr;
   grid-template-rows: 1fr 9fr;
-  &>nav {
+  &>header {
     grid-area: tabs;
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
   }
   &>aside {
     grid-area: user;
