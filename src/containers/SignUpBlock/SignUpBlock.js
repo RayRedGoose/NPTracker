@@ -4,6 +4,7 @@ import PropTypes from 'prop-types'
 import { connect } from 'react-redux'
 import { bindActionCreators } from 'redux'
 import matryoshka from 'assets/matryoshka.svg'
+import check from 'assets/checkmark.svg'
 import arrow from 'assets/send.svg'
 import { addItem, addItemToAll } from '_utils/localStorage'
 import { addUserInfo, increaseStep } from 'redux/actions'
@@ -96,6 +97,12 @@ export class SignUpBlock extends Component {
       zIndex: '3'
     }
 
+    const reverseStyle = {
+      height: `${20 + (id * 40)}px`,
+      position: 'relative',
+      zIndex: '3'
+    }
+
     const bodyWithInputs = (
       <Fragment key='form'>
         <form>
@@ -134,6 +141,7 @@ export class SignUpBlock extends Component {
       <section id={ id } className={`signup-container ${this.state.type}-block`}>
         { this.state.type === 'inactive' && <img style={imageStyle} src={matryoshka} alt="matryoshka"/>}
         { this.state.type === 'active' && checkBody }
+        { this.state.type === 'done' && <img style={reverseStyle} src={check} alt="check"/> }
       </section>
     )
   }

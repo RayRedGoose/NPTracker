@@ -73,3 +73,34 @@
     @extend %accent-btn;
   }
 }
+
+.done-block {
+  &:before {
+    content: '';
+    background-color: $light-color;
+    margin-left: -13.5vw;
+    position: absolute;
+    top: 50%;
+    width: 18vw; height: 1px;
+  }
+  &:first-child {
+    &:before {
+      content: '';
+      background-color: $light-color;
+      margin-left: -6vw;
+      position: absolute;
+      top: 50%;
+      width: 6vw; height: 1px;
+    }
+  }
+  &:nth-child(3) {
+    &:before {
+      content: '';
+      background-color: $light-color;
+      margin-left: -13.5vw;
+      position: absolute;
+      top: 50%;
+      width: 15vw; height: 1px;
+    }
+  }
+}
