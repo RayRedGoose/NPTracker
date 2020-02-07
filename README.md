@@ -35,3 +35,7 @@ NPtracker is a system with National Parks information. The app purpose is to tra
 **Wish list Page**
 
 ![Wish list Page](./screens/wish-list.png)
+
+**Loading Image**
+
+![Loading Image](./screens/loading-animation.gif)
