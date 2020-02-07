@@ -26,7 +26,7 @@ export class SingleParkInfo extends Component {
   findPark = (type) => {
     const { parks, selectPark } = this.props
     const search = type.replace(/-/g, ' ')
-    const park = parks.find(park => park.name.toLowerCase() === search)
+    const park = parks.find(park => park.fullName.toLowerCase() === search)
     selectPark(park)
     this.setState({isLoaded: true})
   }

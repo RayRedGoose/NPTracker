@@ -12,7 +12,7 @@ class Instructions extends Component {
         'Click on \'Wish List\' tab to see your plannings',
         'Click on \'Visited\' tab to see your visited places'
       ],
-      count: 2
+      count: 1
     }
   }
 
