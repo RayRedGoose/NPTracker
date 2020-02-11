@@ -11,6 +11,7 @@ export class App extends Component {
   componentDidMount() {
     const user = getItem('user')
     const path = window.location.pathname
+    console.log(path);
     if (user) this.addUser(user)
     this.checkActiveTab(path)
   }

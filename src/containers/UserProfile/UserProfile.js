@@ -13,13 +13,15 @@ export const UserProfile = ({ user }) => {
           //<img src={logout} alt="logout"/>
         }
       </header>
-      <section>
-        <div className="image" style={{backgroundImage: `url(${user.image})`}}></div>
-        <div>
-          <p>{user.name + ' ' + user.last_name}</p>
-          <p className="location">{user.city}</p>
-        </div>
-      </section>
+      { !!Object.keys(user).length &&
+        <section>
+          <div className="image" style={{backgroundImage: `url(${user.image})`}}></div>
+          <div>
+            <p>{user.name + ' ' + user.last_name}</p>
+            <p className="location">{user.city}</p>
+          </div>
+        </section>
+      }
     </aside>
   )
 }
