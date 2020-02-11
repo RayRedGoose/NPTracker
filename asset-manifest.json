@@ -1,0 +1,41 @@
+{
+  "files": {
+    "main.css": "/NPtracker/static/css/main.79f9f7c6.chunk.css",
+    "main.js": "/NPtracker/static/js/main.502f5040.chunk.js",
+    "main.js.map": "/NPtracker/static/js/main.502f5040.chunk.js.map",
+    "runtime-main.js": "/NPtracker/static/js/runtime-main.7872e03b.js",
+    "runtime-main.js.map": "/NPtracker/static/js/runtime-main.7872e03b.js.map",
+    "static/css/2.7efaf445.chunk.css": "/NPtracker/static/css/2.7efaf445.chunk.css",
+    "static/js/2.19082308.chunk.js": "/NPtracker/static/js/2.19082308.chunk.js",
+    "static/js/2.19082308.chunk.js.map": "/NPtracker/static/js/2.19082308.chunk.js.map",
+    "index.html": "/NPtracker/index.html",
+    "precache-manifest.e2c77cd0948e701fed1ef53e46d43e8d.js": "/NPtracker/precache-manifest.e2c77cd0948e701fed1ef53e46d43e8d.js",
+    "service-worker.js": "/NPtracker/service-worker.js",
+    "static/css/2.7efaf445.chunk.css.map": "/NPtracker/static/css/2.7efaf445.chunk.css.map",
+    "static/css/main.79f9f7c6.chunk.css.map": "/NPtracker/static/css/main.79f9f7c6.chunk.css.map",
+    "static/js/2.19082308.chunk.js.LICENSE": "/NPtracker/static/js/2.19082308.chunk.js.LICENSE",
+    "static/media/balalaika.svg": "/NPtracker/static/media/balalaika.b47c8f0b.svg",
+    "static/media/bell-full.svg": "/NPtracker/static/media/bell-full.9a386b3e.svg",
+    "static/media/bell.svg": "/NPtracker/static/media/bell.aaeb24f1.svg",
+    "static/media/SignUpBlock.scss": "/NPtracker/static/media/bg-image.a7ba4a96.jpg",
+    "static/media/checkmark.svg": "/NPtracker/static/media/checkmark.65820460.svg",
+    "static/media/logo.svg": "/NPtracker/static/media/logo.fdb06dd8.svg",
+    "static/media/matryoshka.svg": "/NPtracker/static/media/matryoshka.3edaf60d.svg",
+    "static/media/more.svg": "/NPtracker/static/media/more.cc3dcfa1.svg",
+    "static/media/note-1.svg": "/NPtracker/static/media/note-1.0190f07c.svg",
+    "static/media/note-2.svg": "/NPtracker/static/media/note-2.45efd08d.svg",
+    "static/media/note-3.svg": "/NPtracker/static/media/note-3.d7542fbc.svg",
+    "static/media/note.svg": "/NPtracker/static/media/note.295dd2ad.svg",
+    "static/media/ParkDescription.scss": "/NPtracker/static/media/pin.279f7787.svg",
+    "static/media/SearchForm.scss": "/NPtracker/static/media/search.287ce050.svg",
+    "static/media/send.svg": "/NPtracker/static/media/send.254114a8.svg",
+    "static/media/traveler.svg": "/NPtracker/static/media/traveler.6aba03ab.svg"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.7872e03b.js",
+    "static/css/2.7efaf445.chunk.css",
+    "static/js/2.19082308.chunk.js",
+    "static/css/main.79f9f7c6.chunk.css",
+    "static/js/main.502f5040.chunk.js"
+  ]
+}
