@@ -4,7 +4,7 @@ import './index.scss'
 import 'mapbox-gl/dist/mapbox-gl.css'
 import App from 'containers/App/App'
 import * as serviceWorker from './serviceWorker'
-import { BrowserRouter } from 'react-router-dom'
+import { HashRouter } from 'react-router-dom'
 import { Provider } from 'react-redux'
 import { createStore } from 'redux'
 import { composeWithDevTools } from 'redux-devtools-extension'
@@ -14,9 +14,9 @@ const store = createStore(rootReducer, composeWithDevTools())
 
 const app = (
   <Provider store={store}>
-    <BrowserRouter>
+    <HashRouter>
       <App />
-    </BrowserRouter>
+    </HashRouter>
   </Provider>
 )
 
